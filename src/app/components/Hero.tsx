@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "@/assets/logo/metricmind-logo.jpg";
@@ -370,56 +371,58 @@ export default function Hero() {
               From computer training and CAC services to graphics design and online applications, we deliver professional solutions that drive growth and efficiency.
             </motion.p>
 
-            {/* CTA Buttons with advanced hover */}
-            <motion.div
-              variants={itemVariants}
-              className="hero-cta flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-8"
-            >
-              <motion.a
-                href="#contact"
-                className="relative px-6 py-3 sm:px-8 sm:py-4 bg-[#1428a0] text-white rounded-lg font-semibold text-xs sm:text-sm overflow-hidden group w-full sm:w-auto flex items-center justify-center"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  boxShadow: "0 10px 30px rgba(20, 40, 160, 0.3)",
-                }}
-              >
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-[#1e3fd4] to-[#2563eb]"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <span className="relative z-10 flex items-center justify-center space-x-2">
-                  <span>Get Started</span>
-                  <motion.svg
-                    className="w-4 h-4 sm:w-5 sm:h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 4, rotate: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </motion.svg>
-                </span>
-              </motion.a>
-              <motion.a
-                href="#services"
-                className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#1428a0] rounded-lg font-semibold text-xs sm:text-sm border-2 border-[#1428a0] relative overflow-hidden group w-full sm:w-auto flex items-center justify-center"
-                whileHover={{ scale: 1.05, y: -2, borderColor: "#1e3fd4" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.span
-                  className="absolute inset-0 bg-[#1428a0]/5"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <span className="relative z-10">View Services</span>
-              </motion.a>
-            </motion.div>
+                {/* CTA Buttons with advanced hover */}
+                <motion.div
+                  variants={itemVariants}
+                  className="hero-cta flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-8"
+                >
+                  <Link href="/contact">
+                    <motion.div
+                      className="relative px-6 py-3 sm:px-8 sm:py-4 bg-[#1428a0] text-white rounded-lg font-semibold text-xs sm:text-sm overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{
+                        boxShadow: "0 10px 30px rgba(20, 40, 160, 0.3)",
+                      }}
+                    >
+                      <motion.span
+                        className="absolute inset-0 bg-gradient-to-r from-[#1e3fd4] to-[#2563eb]"
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <span className="relative z-10 flex items-center justify-center space-x-2">
+                        <span>Get Started</span>
+                        <motion.svg
+                          className="w-4 h-4 sm:w-5 sm:h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 4, rotate: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </motion.svg>
+                      </span>
+                    </motion.div>
+                  </Link>
+                  <Link href="/services">
+                    <motion.div
+                      className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#1428a0] rounded-lg font-semibold text-xs sm:text-sm border-2 border-[#1428a0] relative overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
+                      whileHover={{ scale: 1.05, y: -2, borderColor: "#1e3fd4" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <motion.span
+                        className="absolute inset-0 bg-[#1428a0]/5"
+                        initial={{ scale: 0 }}
+                        whileHover={{ scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <span className="relative z-10">View Services</span>
+                    </motion.div>
+                  </Link>
+                </motion.div>
 
             {/* Business Stats with counter animation */}
             <motion.div

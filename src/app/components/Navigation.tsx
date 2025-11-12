@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo/metricmind-logo.jpg";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,11 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#nysc", label: "NYSC" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/nysc", label: "NYSC" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -37,40 +41,52 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <motion.a
-            href="#"
+          <Link
+            href="/"
             className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <Image
-              src={logo}
-              alt="Metricmind Concepts Logo"
-              width={45}
-              height={45}
-              className="rounded-lg object-cover"
-              priority
-            />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src={logo}
+                alt="Metricmind Concepts Logo"
+                width={45}
+                height={45}
+                className="rounded-lg object-cover"
+                priority
+              />
+            </motion.div>
             <span className="text-xl font-semibold text-gray-900 tracking-tight">
               Metricmind Concepts
             </span>
-          </motion.a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-[#1428a0] transition-colors text-sm font-medium relative group"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-                whileHover={{ y: -2 }}
+                className={`text-sm font-medium relative group transition-colors ${
+                  pathname === item.href
+                    ? "text-[#1428a0]"
+                    : "text-gray-700 hover:text-[#1428a0]"
+                }`}
               >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1428a0] transition-all duration-300 group-hover:w-full"></span>
-              </motion.a>
+                <motion.span
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                  whileHover={{ y: -2 }}
+                >
+                  {item.label}
+                </motion.span>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-[#1428a0] transition-all duration-300 ${
+                  pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </Link>
             ))}
           </div>
 
@@ -113,17 +129,24 @@ export default function Navigation() {
             >
               <div className="py-4 space-y-3 border-t border-gray-100">
                 {navItems.map((item, index) => (
-                  <motion.a
+                  <Link
                     key={item.href}
                     href={item.href}
-                    className="block text-gray-700 hover:text-[#1428a0] transition-colors text-base font-medium py-2"
+                    className={`block transition-colors text-base font-medium py-2 ${
+                      pathname === item.href
+                        ? "text-[#1428a0]"
+                        : "text-gray-700 hover:text-[#1428a0]"
+                    }`}
                     onClick={() => setIsOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
                   >
-                    {item.label}
-                  </motion.a>
+                    <motion.span
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
                 ))}
               </div>
             </motion.div>
