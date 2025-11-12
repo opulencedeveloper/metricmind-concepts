@@ -49,12 +49,11 @@ export default function ScrollReveal({
       scale: 1,
       rotateX: 0,
       transition: {
-        duration,
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
+        duration,
+        delay,
       },
     },
   };
