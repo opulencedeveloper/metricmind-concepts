@@ -18,39 +18,39 @@ export default function ServicesPage() {
       <Navigation />
 
       {/* Services Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 md:mb-20">
               <motion.h1
-                className="text-4xl md:text-5xl font-light text-gray-900 mb-4"
-                initial={{ opacity: 0, y: 30 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
               >
                 Our Services
               </motion.h1>
-              <motion.div
-                className="w-24 h-0.5 bg-[#1428a0] mx-auto mb-4"
-                initial={{ width: 0 }}
-                whileInView={{ width: 96 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
               <motion.p
-                className="text-xl text-gray-600 max-w-2xl mx-auto font-light"
+                className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-6"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
                 Comprehensive digital solutions tailored to your needs
               </motion.p>
+              <motion.div
+                className="w-16 h-1 bg-gradient-to-r from-[#1e40af] to-[#2563eb] mx-auto rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: 64 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              />
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} index={index} />
             ))}

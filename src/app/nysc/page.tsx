@@ -26,7 +26,7 @@ export default function NYSCPage() {
             <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
               NYSC Services
             </h1>
-            <div className="w-24 h-0.5 bg-[#1428a0] mx-auto mb-4"></div>
+            <div className="w-24 h-0.5 bg-[#1e40af] mx-auto mb-4"></div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
               Reliable assistance for all your NYSC registration and verification needs
             </p>
@@ -49,7 +49,7 @@ export default function NYSCPage() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start space-x-4"
                 >
-                  <span className="text-[#1428a0] text-xl mt-1">✓</span>
+                  <span className="text-[#1e40af] text-xl mt-1">✓</span>
                   <span className="text-gray-700 text-base">{service}</span>
                 </motion.div>
               ))}

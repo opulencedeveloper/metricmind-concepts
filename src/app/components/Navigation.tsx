@@ -30,62 +30,66 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "glass-nav shadow-lg"
-          : "bg-white/80 backdrop-blur-md"
+          ? "glass-nav border-b border-gray-200/50"
+          : "bg-white/95 backdrop-blur-xl border-b border-gray-100"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <Link
             href="/"
-            className="flex items-center space-x-3"
+            className="flex items-center space-x-3 group"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="relative"
             >
               <Image
                 src={logo}
                 alt="Metricmind Concepts Logo"
-                width={45}
-                height={45}
-                className="rounded-lg object-cover"
+                width={40}
+                height={40}
+                className="rounded-lg object-cover ring-1 ring-gray-200/50"
                 priority
               />
             </motion.div>
-            <span className="text-xl font-semibold text-gray-900 tracking-tight">
+            <span className="text-lg md:text-xl font-semibold text-gray-900 tracking-tight group-hover:text-[#1e40af] transition-colors">
               Metricmind Concepts
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium relative group transition-colors ${
+                className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                   pathname === item.href
-                    ? "text-[#1428a0]"
-                    : "text-gray-700 hover:text-[#1428a0]"
+                    ? "text-[#1e40af] bg-[#1e40af]/5"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100/50"
                 }`}
               >
                 <motion.span
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                  whileHover={{ y: -2 }}
+                  transition={{ delay: index * 0.05 + 0.2, duration: 0.3 }}
                 >
                   {item.label}
                 </motion.span>
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-[#1428a0] transition-all duration-300 ${
-                  pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
-                }`}></span>
+                {pathname === item.href && (
+                  <motion.div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#1e40af] rounded-full"
+                    layoutId="activeIndicator"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
           </div>
@@ -127,22 +131,22 @@ export default function Navigation() {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-3 border-t border-gray-100">
+              <div className="py-4 space-y-1 border-t border-gray-200">
                 {navItems.map((item, index) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block transition-colors text-base font-medium py-2 ${
+                    className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-all duration-200 ${
                       pathname === item.href
-                        ? "text-[#1428a0]"
-                        : "text-gray-700 hover:text-[#1428a0]"
+                        ? "text-[#1e40af] bg-[#1e40af]/5"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-100/50"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
                     <motion.span
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.05, duration: 0.2 }}
                     >
                       {item.label}
                     </motion.span>

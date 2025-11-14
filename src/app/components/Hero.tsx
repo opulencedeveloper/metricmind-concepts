@@ -226,7 +226,7 @@ export default function Hero() {
         
         {/* Animated gradient orbs - responsive sizes */}
         <motion.div
-          className="gradient-orb-1 absolute top-10 right-10 sm:top-20 sm:right-20 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[#1428a0]/10 rounded-full blur-3xl"
+          className="gradient-orb-1 absolute top-10 right-10 sm:top-20 sm:right-20 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[#1e40af]/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -238,7 +238,7 @@ export default function Hero() {
           }}
         />
         <motion.div
-          className="gradient-orb-2 absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[#1428a0]/10 rounded-full blur-3xl"
+          className="gradient-orb-2 absolute bottom-10 left-10 sm:bottom-20 sm:left-20 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-[#1e40af]/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
@@ -254,7 +254,7 @@ export default function Hero() {
         {isMounted && particlePositions.map((pos, i) => (
           <motion.div
             key={i}
-            className="hidden md:block floating-particle absolute w-2 h-2 bg-[#1428a0]/20 rounded-full"
+            className="hidden md:block floating-particle absolute w-2 h-2 bg-[#1e40af]/20 rounded-full"
             style={{
               left: `${pos.left}%`,
               top: `${pos.top}%`,
@@ -287,7 +287,7 @@ export default function Hero() {
         
         {/* Professional accent line */}
         <motion.div
-          className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#1428a0] to-transparent"
+          className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#1e40af] to-transparent"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -306,7 +306,7 @@ export default function Hero() {
             {/* Badge with magnetic effect */}
             <motion.div
               variants={itemVariants}
-              className="flex items-center space-x-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#1428a0]/10 rounded-full border border-[#1428a0]/20 backdrop-blur-sm w-fit max-w-full overflow-visible"
+              className="flex items-center space-x-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#1e40af]/10 rounded-full border border-[#1e40af]/20 backdrop-blur-sm w-fit max-w-full overflow-visible"
               style={{
                 x: useTransform(x, (latest) => latest * 0.5),
                 y: useTransform(ySpring, (latest) => latest * 0.5),
@@ -314,7 +314,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(20, 40, 160, 0.3)" }}
             >
               <motion.span
-                className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1428a0] rounded-full shrink-0"
+                className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1e40af] rounded-full shrink-0"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [1, 0.7, 1],
@@ -325,7 +325,7 @@ export default function Hero() {
                   ease: "easeInOut",
                 }}
               />
-              <span className="text-xs sm:text-sm font-medium text-[#1428a0] whitespace-nowrap overflow-visible">Trusted IT Solutions Provider</span>
+              <span className="text-xs sm:text-sm font-medium text-[#1e40af] whitespace-nowrap overflow-visible">Trusted IT Solutions Provider</span>
             </motion.div>
 
             {/* Main Title with split text animation */}
@@ -347,7 +347,7 @@ export default function Hero() {
                 }}
               >
                 <span className="block w-full text-left" style={{ display: "block", width: "100%", textAlign: "left" }}>Enterprise-Grade</span>
-                <span className="block w-full text-left font-semibold text-[#1428a0]" style={{ display: "block", width: "100%", textAlign: "left" }}>Digital Solutions</span>
+                <span className="block w-full text-left font-semibold text-[#1e40af]" style={{ display: "block", width: "100%", textAlign: "left" }}>Digital Solutions</span>
                 <span className="block w-full text-left font-light text-gray-700" style={{ display: "block", width: "100%", textAlign: "left" }}>for Your Business</span>
               </h1>
             </motion.div>
@@ -378,7 +378,7 @@ export default function Hero() {
                 >
                   <Link href="/contact">
                     <motion.div
-                      className="relative px-6 py-3 sm:px-8 sm:py-4 bg-[#1428a0] text-white rounded-lg font-semibold text-xs sm:text-sm overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
+                      className="relative px-6 py-3 sm:px-8 sm:py-4 bg-[#1e40af] text-white rounded-lg font-semibold text-xs sm:text-sm overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       style={{
@@ -386,7 +386,7 @@ export default function Hero() {
                       }}
                     >
                       <motion.span
-                        className="absolute inset-0 bg-gradient-to-r from-[#1e3fd4] to-[#2563eb]"
+                        className="absolute inset-0 bg-gradient-to-r from-[#2563eb] to-[#2563eb]"
                         initial={{ x: "-100%" }}
                         whileHover={{ x: 0 }}
                         transition={{ duration: 0.3 }}
@@ -409,12 +409,12 @@ export default function Hero() {
                   </Link>
                   <Link href="/services">
                     <motion.div
-                      className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#1428a0] rounded-lg font-semibold text-xs sm:text-sm border-2 border-[#1428a0] relative overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
-                      whileHover={{ scale: 1.05, y: -2, borderColor: "#1e3fd4" }}
+                      className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#1e40af] rounded-lg font-semibold text-xs sm:text-sm border-2 border-[#1e40af] relative overflow-hidden group w-full sm:w-auto flex items-center justify-center cursor-pointer"
+                      whileHover={{ scale: 1.05, y: -2, borderColor: "#2563eb" }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <motion.span
-                        className="absolute inset-0 bg-[#1428a0]/5"
+                        className="absolute inset-0 bg-[#1e40af]/5"
                         initial={{ scale: 0 }}
                         whileHover={{ scale: 1 }}
                         transition={{ duration: 0.3 }}
@@ -440,7 +440,7 @@ export default function Hero() {
                   whileHover={{ scale: 1.1, y: -5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <div className="text-2xl sm:text-3xl font-semibold text-[#1428a0] mb-1">
+                  <div className="text-2xl sm:text-3xl font-semibold text-[#1e40af] mb-1">
                     <span className="stat-number" data-value={stat.value} data-suffix={stat.suffix}>
                       {stat.value}{stat.suffix}
                     </span>
@@ -476,7 +476,7 @@ export default function Hero() {
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-[#1428a0]/5 to-gray-50 flex items-center justify-center">
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-[#1e40af]/5 to-gray-50 flex items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 200 }}
@@ -529,7 +529,7 @@ export default function Hero() {
                     <p className="text-xs sm:text-sm text-gray-600">IT & Digital Solutions</p>
                   </div>
                   <motion.div
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-[#1428a0]/10 rounded-lg flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-[#1e40af]/10 rounded-lg flex items-center justify-center"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   >
@@ -574,12 +574,12 @@ export default function Hero() {
                     rotateY: 5,
                     rotateX: -5,
                     boxShadow: "0 20px 40px rgba(20, 40, 160, 0.2)",
-                    borderColor: "#1428a0",
+                    borderColor: "#1e40af",
                   }}
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.div
-                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#1428a0]/10 rounded-lg flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-[#1428a0]/20 transition-colors"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-[#1e40af]/10 rounded-lg flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-[#1e40af]/20 transition-colors"
                     whileHover={{ rotate: 360, scale: 1.2 }}
                     transition={{ duration: 0.5 }}
                   >
