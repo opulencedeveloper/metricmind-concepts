@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/assets/logo/metricmind-logo.jpg";
 
 export default function Footer() {
@@ -30,10 +31,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="/about" className="text-sm text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/services" className="text-sm text-gray-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="/nysc" className="text-sm text-gray-400 hover:text-white transition-colors">NYSC Services</a></li>
-              <li><a href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="/about" className="text-sm text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/services" className="text-sm text-gray-400 hover:text-white transition-colors">Services</Link></li>
+              <li><Link href="/nysc" className="text-sm text-gray-400 hover:text-white transition-colors">NYSC Services</Link></li>
+              <li><Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
