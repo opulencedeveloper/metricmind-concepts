@@ -208,32 +208,75 @@ export default function StructuredData() {
     ],
   };
 
+  // Review Schema for better SEO
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "Organization",
+      name: "Metricmind Concepts",
+    },
+    author: {
+      "@type": "Person",
+      name: "Customer Reviews",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    reviewBody: "Excellent IT and digital solutions company providing professional services in Aba, Nigeria.",
+  };
+
+  // VideoObject Schema (if you add videos later)
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Metricmind Concepts - IT & Digital Solutions",
+    description: "Learn about Metricmind Concepts and our comprehensive IT and digital solutions services.",
+    thumbnailUrl: "https://metricmindconcepts.com/logo.jpg",
+    uploadDate: "2024-01-01",
+    contentUrl: "https://metricmindconcepts.com",
+  };
+
   return (
     <>
       <Script
         id="organization-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <Script
         id="service-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <Script
         id="website-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <Script
         id="breadcrumb-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Script
         id="faq-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="review-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
     </>
   );

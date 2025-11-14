@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 
 interface ServiceCardProps {
@@ -13,18 +14,55 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ icon, title, description, services, index, imageUrl }: ServiceCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 500, damping: 100 });
+  const mouseYSpring = useSpring(y, { stiffness: 500, damping: 100 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      initial={{ opacity: 0, y: 30, rotateX: -15 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.5, 
         delay: index * 0.1,
         ease: [0.4, 0, 0.2, 1]
       }}
-      className="group relative bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-[#1e40af]/20 transition-all duration-300 shadow-sm hover:shadow-lg"
-      whileHover={{ y: -4 }}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      className="group relative bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-[#1e40af]/20 transition-all duration-300 shadow-sm hover:shadow-2xl"
+      whileHover={{ scale: 1.05, z: 50 }}
     >
       {imageUrl && (
         <div className="relative h-48 w-full overflow-hidden bg-gray-100">
@@ -38,14 +76,24 @@ export default function ServiceCard({ icon, title, description, services, index,
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
         </div>
       )}
-      <div className="p-6 md:p-8">
+      <div className="p-6 md:p-8" style={{ transform: "translateZ(20px)" }}>
         <div className="flex items-center justify-between mb-4">
-          <div className="text-4xl md:text-5xl">{icon}</div>
-          <div className="w-10 h-10 rounded-lg bg-[#1e40af]/10 group-hover:bg-[#1e40af] transition-colors duration-300 flex items-center justify-center">
+          <motion.div 
+            className="text-4xl md:text-5xl"
+            whileHover={{ scale: 1.2, rotate: 360 }}
+            transition={{ duration: 0.6 }}
+          >
+            {icon}
+          </motion.div>
+          <motion.div 
+            className="w-10 h-10 rounded-lg bg-[#1e40af]/10 group-hover:bg-[#1e40af] transition-colors duration-300 flex items-center justify-center"
+            whileHover={{ scale: 1.2, rotate: 90 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <svg className="w-5 h-5 text-[#1e40af] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </div>
+          </motion.div>
         </div>
         <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 group-hover:text-[#1e40af] transition-colors duration-300">{title}</h3>
         <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">{description}</p>

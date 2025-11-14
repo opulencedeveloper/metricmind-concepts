@@ -346,3 +346,93 @@ a, button, input, textarea, select {
     padding-bottom: var(--spacing-2xl);
   }
 }
+
+/* 3D Effects and Animations */
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+  }
+  66% {
+    transform: translateY(20px) rotateX(-5deg) rotateY(-5deg);
+  }
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.3), 0 0 40px rgba(30, 64, 175, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(30, 64, 175, 0.6), 0 0 80px rgba(30, 64, 175, 0.4);
+  }
+}
+
+/* 3D Perspective Container */
+.perspective-3d {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+/* Preserve 3D Transform */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* 3D Card Hover Effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Smooth 3D Transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU Acceleration for 3D */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 3D Text Effect */
+.text-3d {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.1),
+    2px 2px 0 rgba(0, 0, 0, 0.05),
+    3px 3px 5px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+}
+
+/* Enhanced 3D Shadows */
+.shadow-3d {
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 1px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.shadow-3d-lg {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}

@@ -1,49 +1,92 @@
 # robots.txt for Metricmind Concepts
 # https://metricmindconcepts.com/robots.txt
+# Last updated: 2024
 
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
+# Disallow admin, API, and private areas
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /private/
+Disallow: /_error
+Disallow: /404
+Disallow: /500
 
-# Allow all search engines
+# Allow specific search engines with full access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Baiduspider
 Allow: /
+Crawl-delay: 2
 
 User-agent: YandexBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Sogou
 Allow: /
+Crawl-delay: 2
 
 User-agent: Exabot
 Allow: /
+Crawl-delay: 1
 
 User-agent: facebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: ia_archiver
 Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 1
+
+User-agent: TelegramBot
+Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://metricmindconcepts.com/sitemap.xml
 
-# Crawl-delay (optional, in seconds)
-Crawl-delay: 1
+# Host (optional, helps with canonical URLs)
+Host: metricmindconcepts.com
 

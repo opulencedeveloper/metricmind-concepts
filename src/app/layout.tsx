@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "Data recovery Aba",
     "Email setup Aba",
     "Domain registration Nigeria",
+    "Metricmind Concepts",
+    "Aba IT services",
+    "Abia State digital solutions",
   ],
   authors: [{ name: "Metricmind Concepts", url: "https://metricmindconcepts.com" }],
   creator: "Metricmind Concepts",
@@ -49,6 +52,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://metricmindconcepts.com"),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-NG": "https://metricmindconcepts.com",
+      "en": "https://metricmindconcepts.com",
+    },
   },
   openGraph: {
     title: "Metricmind Concepts - Premium IT & Digital Solutions | Aba, Nigeria",
@@ -85,6 +92,8 @@ export const metadata: Metadata = {
     "og:image:height": "630",
     "og:image:type": "image/jpeg",
     "og:image:alt": "Metricmind Concepts Logo - Premium IT & Digital Solutions in Aba, Nigeria",
+    "theme-color": "#1e40af",
+    "color-scheme": "light",
   },
   twitter: {
     card: "summary_large_image",
@@ -122,13 +131,16 @@ export const metadata: Metadata = {
   classification: "IT Services, Business Support, Education",
   icons: {
     icon: [
-      { url: "/logo.jpg", type: "image/jpeg" },
+      { url: "/logo.jpg", type: "image/jpeg", sizes: "any" },
     ],
     apple: [
-      { url: "/logo.jpg", type: "image/jpeg" },
+      { url: "/logo.jpg", type: "image/jpeg", sizes: "180x180" },
     ],
+    shortcut: [{ url: "/logo.jpg", type: "image/jpeg" }],
   },
   manifest: "/manifest.json",
+  applicationName: "Metricmind Concepts",
+  referrer: "origin-when-cross-origin",
 };
 
 export default function RootLayout({
