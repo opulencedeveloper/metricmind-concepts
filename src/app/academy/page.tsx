@@ -6,6 +6,13 @@ import Reveal from "../components/Reveal";
 import { Arrow, Check, CircuitTraces, ContactButtons, Eyebrow, WhatsAppIcon, waLink } from "../components/mm";
 import { mmFonts } from "../lib/fonts";
 import { academy } from "../data/content";
+import Image from "next/image";
+import Slideshow from "../components/Slideshow";
+import PhotoReel from "../components/PhotoReel";
+import { photos, academyGallery } from "../data/media";
+
+// Background photo for each "Why choose us" card (same order as academy.benefits)
+const benefitPhotos = [photos.oneOnOne, photos.deskPortrait, photos.teamStreet, photos.capHelping];
 
 const enrolLink = (course?: string) =>
   waLink(
@@ -26,14 +33,15 @@ export default function AcademyPage() {
       {/* ============ HERO ============ */}
       <section className="relative px-4 md:px-12 pt-28 md:pt-40 pb-12 md:pb-16">
         <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
-        <div className="relative max-w-[77.5rem] mx-auto">
+        <div className="relative max-w-[77.5rem] mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-14 items-center">
+          <div>
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)] mm-pulse" /> {academy.name} · Enrolment open
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-6 text-[52px] sm:text-[80px] lg:text-[112px] font-semibold leading-[0.9] tracking-[-0.05em]">
+            <h1 className="mt-6 text-[52px] sm:text-[80px] lg:text-[96px] font-semibold leading-[0.9] tracking-[-0.05em]">
               {learn}. <span className="serif text-[var(--mm-magenta)]">{build}.</span>
               <br />
               {innovate}.
@@ -57,6 +65,24 @@ export default function AcademyPage() {
             >
               View {academy.courses.length} courses <Arrow />
             </a>
+          </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div className="relative">
+              <div className="absolute -inset-3 rounded-4xl bg-(--mm-lime) rotate-[2deg]" aria-hidden />
+              <Slideshow
+                photos={[photos.whiteboard, photos.kidsLaptop, photos.studentsSmile, photos.mentorBack, photos.studentBoard]}
+                priority
+                sizes="(min-width: 1024px) 520px, 100vw"
+                className="relative aspect-[4/3] lg:aspect-[5/6] rounded-[1.75rem] bg-(--mm-ink) shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]"
+                caption={<span className="text-sm font-medium">Real classes · Real projects</span>}
+              />
+              <div className="absolute -left-3 sm:-left-6 -bottom-6 rounded-3xl bg-(--mm-ink) text-white px-5 py-4 shadow-[0_25px_50px_-20px_rgba(0,0,0,0.6)]">
+                <p className="text-3xl font-semibold tracking-[-0.04em]">{academy.courses.length}</p>
+                <p className="text-xs text-white/60">in-demand courses</p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -145,24 +171,37 @@ export default function AcademyPage() {
                 Learning that <span className="serif text-[var(--mm-lime)]">actually</span> gets you hired.
               </h2>
               <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                {academy.benefits.map((b) => (
+                {academy.benefits.map((b, i) => (
                   <a
                     key={b.title}
                     href={waLink(`Hello Metricmind Academy, I'd like to know more about your ${b.title.toLowerCase()}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Ask about ${b.title} on WhatsApp`}
-                    className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 hover:bg-white/[0.09] hover:border-[var(--mm-lime)]/50 hover:-translate-y-1 transition-all duration-300"
+                    className="group relative isolate flex min-h-[340px] flex-col overflow-hidden rounded-2xl border border-white/10 p-6 hover:border-(--mm-lime)/60 hover:-translate-y-1 transition-all duration-300"
                   >
-                    <span className="w-9 h-9 rounded-full bg-[var(--mm-lime)] text-[var(--mm-ink)] flex items-center justify-center">
+                    {/* photo background */}
+                    <Image
+                      src={benefitPhotos[i].src}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+                      placeholder="blur"
+                      className="-z-10 object-cover scale-100 group-hover:scale-[1.06] transition-transform duration-700"
+                    />
+                    <span className="absolute inset-0 -z-10 bg-gradient-to-t from-(--mm-ink) via-(--mm-ink)/80 to-(--mm-ink)/25" aria-hidden />
+
+                    <span className="w-9 h-9 rounded-full bg-(--mm-lime) text-(--mm-ink) flex items-center justify-center">
                       <Check className="w-4 h-4" />
                     </span>
-                    <h3 className="mt-6 text-xl font-semibold tracking-[-0.02em]">{b.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/60">{b.body}</p>
-                    <span className="mt-auto pt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--mm-lime)]">
-                      <WhatsAppIcon className="w-4 h-4" /> Ask on WhatsApp
-                      <Arrow className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </span>
+                    <div className="mt-auto">
+                      <h3 className="text-xl font-semibold tracking-[-0.02em]">{b.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/75">{b.body}</p>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-(--mm-lime)">
+                        <WhatsAppIcon className="w-4 h-4" /> Ask on WhatsApp
+                        <Arrow className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </span>
+                    </div>
                   </a>
                 ))}
               </div>
@@ -201,10 +240,35 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* ============ GALLERY: inside the classroom ============ */}
+      <section aria-label="Inside the classroom" className="pb-16 md:pb-24">
+        <div className="max-w-[77.5rem] mx-auto px-4 md:px-12 mb-8">
+          <Reveal>
+            <Eyebrow>Inside the classroom</Eyebrow>
+            <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
+              Where skills <span className="serif">come to life.</span>
+            </h2>
+          </Reveal>
+        </div>
+        <PhotoReel photos={academyGallery} />
+        <div className="mt-4">
+          <PhotoReel photos={[...academyGallery].reverse()} reverse />
+        </div>
+      </section>
+
       {/* ============ CTA ============ */}
       <section className="px-4 md:px-12 pb-20 md:pb-28">
         <Reveal className="max-w-[77.5rem] mx-auto">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white px-6 py-14 md:p-16 text-center">
+          <div className="relative isolate overflow-hidden rounded-[2rem] bg-(--mm-ink) text-white px-6 py-16 md:p-20 text-center">
+            <Image
+              src={photos.storefront.src}
+              alt=""
+              fill
+              sizes="(min-width: 1280px) 1240px, 100vw"
+              placeholder="blur"
+              className="-z-10 object-cover"
+            />
+            <span className="absolute inset-0 -z-10 bg-(--mm-ink)/80" aria-hidden />
             <CircuitTraces className="absolute left-0 bottom-0 w-[460px] max-w-[80vw] text-[var(--mm-lime)] opacity-15" />
             <div className="relative">
               <h2 className="text-[36px] md:text-[64px] font-semibold leading-[1] tracking-[-0.045em] text-balance">

@@ -4,16 +4,21 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import Reveal from "./components/Reveal";
+import Slideshow from "./components/Slideshow";
+import PhotoReel from "./components/PhotoReel";
+import { photos, academyGallery, credentials } from "./data/media";
 import { Arrow, Check, CircuitTraces, ContactButtons, Eyebrow, EMAIL, MAPS, PinIcon, WhatsAppIcon, waLink } from "./components/mm";
 import { mmFonts } from "./lib/fonts";
 import { services, whyChooseUs, nyscServices, contactInfo, academy } from "./data/content";
 import logo from "@/assets/logo/metricmind-logo.jpg";
-import cacImage from "@/assets/images/METRICMIND-CONCEPTS-CAC.jpeg";
+import cacImage from "@/assets/images/METRICMIND-CONCEPTS-CAC.jpg";
 
 const serviceTags = ["IT & Repairs", "Business", "Training", "Online", "Design & Print", "Web & Growth"];
 
 const marqueeItems = [
   "CAC Registration",
+  "SCUML (EFCC) Registration",
+  "Trademark Registration",
   "Computer Training",
   "Graphics Design",
   "NYSC Services",
@@ -44,6 +49,10 @@ const faqs = [
   {
     q: "Can you register my business name with CAC?",
     a: "Yes. We handle business name registration, company incorporation, upgrades, annual returns and TIN processing. Bring or send your details and we'll guide you through what's required.",
+  },
+  {
+    q: "Can you get my business a SCUML certificate or register a trademark?",
+    a: "Yes. We handle SCUML registration with the EFCC's Special Control Unit Against Money Laundering, and name and logo trademark registration in all classes. Send us your business details and we'll tell you what's needed.",
   },
   {
     q: "Do I have to come to the office?",
@@ -113,7 +122,10 @@ export default function Home() {
             <Reveal delay={320}>
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-(--mm-muted)">
                 <span className="inline-flex items-center gap-2">
-                  <Check className="w-4 h-4 text-(--mm-green)" /> CAC registered · BN 7539050
+                  <Check className="w-4 h-4 text-(--mm-green)" /> CAC registered · RC 9193173
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Check className="w-4 h-4 text-(--mm-green)" /> SCUML (EFCC) registered
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <Check className="w-4 h-4 text-(--mm-green)" /> Online or walk-in
@@ -125,54 +137,52 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* Hero card: the "front desk" */}
+          {/* Hero visual: real photo slideshow with floating cards */}
           <Reveal delay={200}>
-            <div className="relative">
-              <div className="absolute -inset-3 rounded-4xl bg-(--mm-lime) rotate-[-2.5deg]" aria-hidden />
-              <div className="relative rounded-[1.75rem] bg-(--mm-ink) text-white p-6 sm:p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={logo}
-                    alt="Metricmind Concepts logo"
-                    width={56}
-                    height={56}
-                    className="rounded-full bg-white"
-                    priority
-                  />
-                  <div>
-                    <p className="font-semibold text-lg leading-tight">Metricmind Concepts</p>
-                    <p className="text-sm text-white/55">IT · Business · Digital</p>
-                  </div>
-                </div>
+            <div className="relative pt-7 pr-7 pb-10 sm:pb-0">
+              {/* card-shuffle stack: front card flies out and the next rises from behind */}
+              <Slideshow
+                variant="shuffle"
+                photos={[photos.storefront, photos.whiteboard, photos.consult, photos.kidsLaptop, photos.teamStreet]}
+                priority
+                sizes="(min-width: 1024px) 480px, 100vw"
+                className="aspect-[4/5] sm:aspect-[5/6]"
+                cardClassName="rounded-[1.75rem] bg-(--mm-ink) ring-4 ring-(--mm-paper-2) shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]"
+                caption={
+                  <span className="inline-flex items-center gap-2 text-sm font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-(--mm-lime)" /> Inside Metricmind Concepts
+                  </span>
+                }
+              />
 
-                <p className="mt-7 text-xs uppercase tracking-[0.18em] text-white/45">Popular today</p>
-                <ul className="mt-3 divide-y divide-white/10">
-                  {[
-                    "Business name registration",
-                    "Computer & Excel training",
-                    "NYSC registration & corrections",
-                    "DS-160 visa form filling",
-                    "Flyer, banner & logo design",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center justify-between py-3 text-[15px]">
-                      <span className="text-white/90">{item}</span>
-                      <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-                        <Check className="w-3.5 h-3.5 text-(--mm-lime)" />
-                      </span>
+              {/* floating brand card */}
+              <div className="absolute z-50 -left-3 sm:-left-8 top-6 flex items-center gap-3 rounded-full bg-(--mm-paper-2) pl-1.5 pr-4 py-1.5 shadow-[0_15px_35px_-15px_rgba(0,0,0,0.4)] border border-(--mm-line)">
+                <Image src={logo} alt="" width={40} height={40} className="rounded-full bg-white" />
+                <span className="leading-tight">
+                  <span className="block text-sm font-semibold">CAC &amp; SCUML registered</span>
+                  <span className="block text-xs text-(--mm-muted)">Verified by CAC &amp; EFCC</span>
+                </span>
+              </div>
+
+              {/* floating popular-services card */}
+              <a
+                href={MAPS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute z-50 -bottom-2 sm:-bottom-8 right-3 sm:-right-6 w-[230px] rounded-3xl bg-(--mm-ink) text-white p-4 shadow-[0_25px_50px_-20px_rgba(0,0,0,0.6)] hover:bg-(--mm-ink-2)"
+              >
+                <p className="text-[11px] uppercase tracking-[0.18em] text-white/45">Popular today</p>
+                <ul className="mt-2 space-y-1.5 text-[13px]">
+                  {["Business name registration", "Computer & Excel training", "NYSC & DS-160 forms"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-white/90">
+                      <Check className="w-3.5 h-3.5 shrink-0 text-(--mm-lime)" /> {item}
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={MAPS}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 flex items-start gap-3 rounded-2xl bg-white/5 hover:bg-white/10 p-4 text-sm"
-                >
-                  <PinIcon className="w-5 h-5 mt-0.5 shrink-0 text-(--mm-lime)" />
-                  <span className="text-white/75 leading-relaxed">{contactInfo.address}</span>
-                </a>
-              </div>
+                <p className="mt-3 flex items-center gap-1.5 text-xs text-white/60">
+                  <PinIcon className="w-3.5 h-3.5 text-(--mm-lime)" /> {contactInfo.addressShort}
+                </p>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -205,6 +215,24 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* ============ LIFE AT METRICMIND: photo reel ============ */}
+      <section aria-label="Life at Metricmind" className="pb-16 md:pb-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <Reveal>
+            <Eyebrow>Life at Metricmind</Eyebrow>
+            <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-[-0.03em] max-w-2xl">
+              Real people. <span className="serif">Real results.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="max-w-sm text-(--mm-muted)">
+              A look inside our classrooms and office, where learners, clients and our team get things done.
+            </p>
+          </Reveal>
+        </div>
+        <PhotoReel photos={academyGallery} />
       </section>
 
       {/* ============ SERVICES ============ */}
@@ -312,18 +340,26 @@ export default function Home() {
                   Explore {academy.courses.length} courses <Arrow />
                 </Link>
               </div>
-              <ul className="flex flex-wrap gap-2">
-                {academy.courses.map((c) => (
-                  <li key={c.title}>
-                    <Link
-                      href="/academy#courses"
-                      className="inline-flex items-center rounded-full bg-[var(--mm-paper-2)]/90 hover:bg-[var(--mm-ink)] hover:text-white px-4 h-10 text-sm font-medium"
-                    >
-                      {c.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <Slideshow
+                  photos={[photos.lecture, photos.studentsSmile, photos.kidsDemo, photos.studentBoard, photos.cohort]}
+                  sizes="(min-width: 1024px) 460px, 100vw"
+                  className="aspect-[4/3] rounded-3xl bg-(--mm-ink) border-4 border-(--mm-ink)"
+                  caption={<span className="text-sm font-medium">Hands-on classes at {academy.name}</span>}
+                />
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {academy.courses.map((c) => (
+                    <li key={c.title}>
+                      <Link
+                        href="/academy#courses"
+                        className="inline-flex items-center rounded-full bg-(--mm-paper-2)/90 hover:bg-(--mm-ink) hover:text-white px-3.5 h-9 text-[13px] font-medium"
+                      >
+                        {c.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -416,16 +452,29 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={120}>
-            <figure className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-4 rounded-[2rem] border border-dashed border-[var(--mm-green)]/60" aria-hidden />
+            {/* Credentials: CAC (portrait) with SCUML (landscape) overlapping */}
+            <figure className="relative mx-auto max-w-md pb-24 sm:pb-28">
+              <div className="absolute -inset-4 rounded-[2rem] border border-dashed border-(--mm-green)/60" aria-hidden />
               <Image
                 src={cacImage}
-                alt="Metricmind Concepts CAC certificate of business name registration, BN 7539050"
-                className="relative rounded-2xl shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] rotate-[1.5deg]"
-                sizes="(min-width: 1024px) 384px, 90vw"
+                alt="CAC Certificate of Incorporation for Metricmind Digital Concepts Ltd, Company Registration No. RC 9193173"
+                className="relative w-[68%] h-auto rounded-2xl shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] -rotate-[2deg]"
+                sizes="(min-width: 1024px) 300px, 65vw"
               />
-              <figcaption className="absolute -bottom-5 -left-3 sm:-left-8 rounded-full bg-[var(--mm-ink)] text-white px-4 py-2 text-sm shadow-lg">
-                <span className="text-[var(--mm-lime)]">●</span> Registered with CAC
+              <Image
+                src={photos.scuml.src}
+                alt={photos.scuml.alt}
+                placeholder="blur"
+                className="absolute right-0 bottom-0 w-[72%] h-auto rounded-2xl border-4 border-(--mm-paper-2) shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)] rotate-[2.5deg]"
+                sizes="(min-width: 1024px) 320px, 70vw"
+              />
+              <figcaption className="absolute -top-4 right-2 sm:-right-6 flex flex-col gap-1.5">
+                <span className="rounded-full bg-(--mm-ink) text-white px-4 py-2 text-sm shadow-lg">
+                  <span className="text-(--mm-lime)">●</span> {credentials.cac.label} · {credentials.cac.number}
+                </span>
+                <span className="self-end rounded-full bg-(--mm-lime) text-(--mm-ink) px-4 py-2 text-sm font-medium shadow-lg">
+                  {credentials.scuml.label}
+                </span>
               </figcaption>
             </figure>
           </Reveal>

@@ -6,6 +6,8 @@ import { Arrow, CircuitTraces, Eyebrow, EMAIL, MAPS, PHONE_DISPLAY, PHONE_TEL, P
 import { mmFonts } from "../lib/fonts";
 import { contactInfo } from "../data/content";
 import ContactForm from "./ContactForm";
+import Image from "next/image";
+import { photos } from "../data/media";
 
 const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(contactInfo.address)}&output=embed`;
 
@@ -86,7 +88,13 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={120} className="flex flex-col">
-            <div className="relative flex-1 min-h-[320px] overflow-hidden rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper)]">
+            <figure className="relative mb-4 aspect-[16/9] overflow-hidden rounded-[2rem]">
+              <Image src={photos.storefront.src} alt={photos.storefront.alt} fill sizes="(min-width: 1024px) 480px, 100vw" placeholder="blur" className="object-cover" />
+              <figcaption className="absolute left-4 bottom-4 rounded-full bg-(--mm-ink)/90 px-3.5 py-1.5 text-xs font-medium text-white">
+                Look for this sign on Omuma Road
+              </figcaption>
+            </figure>
+            <div className="relative flex-1 min-h-[280px] overflow-hidden rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper)]">
               <iframe
                 title="Map showing Metricmind Concepts office in Aba"
                 src={MAP_EMBED}

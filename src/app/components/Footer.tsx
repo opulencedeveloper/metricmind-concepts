@@ -63,7 +63,7 @@ export default function Footer() {
               Bringing technology closer to you. IT, business, training and digital services in Aba, Abia State.
             </p>
             <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-xs text-white/70">
-              <span className="text-[var(--mm-lime)]">●</span> CAC registered · BN 7539050
+              <span className="text-[var(--mm-lime)]">●</span> CAC · RC 9193173 &nbsp;·&nbsp; SCUML (EFCC) registered
             </p>
           </div>
 

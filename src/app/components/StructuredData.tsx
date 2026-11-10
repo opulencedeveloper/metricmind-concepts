@@ -5,6 +5,11 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness"],
     name: "Metricmind Concepts",
+    legalName: "Metricmind Digital Concepts Ltd",
+    identifier: [
+      { "@type": "PropertyValue", propertyID: "CAC RC", value: "9193173" },
+      { "@type": "PropertyValue", propertyID: "SCUML RN", value: "SC 011500823" },
+    ],
     description: "Trusted IT and digital solutions company in Aba, Abia State, Nigeria. Providing computer training, CAC services, graphics design, online applications, and comprehensive digital solutions for businesses and individuals.",
     url: "https://www.metricmindconcepts.com",
     logo: {

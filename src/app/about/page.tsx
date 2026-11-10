@@ -7,8 +7,10 @@ import Reveal from "../components/Reveal";
 import { Arrow, Check, ContactButtons, Eyebrow, EMAIL, MAPS, PHONE_DISPLAY, PHONE_TEL, PinIcon, WHATSAPP, WhatsAppIcon } from "../components/mm";
 import { mmFonts } from "../lib/fonts";
 import { contactInfo, services } from "../data/content";
+import PhotoReel from "../components/PhotoReel";
+import { photos, credentials } from "../data/media";
 import logo from "@/assets/logo/metricmind-logo.jpg";
-import cacImage from "@/assets/images/METRICMIND-CONCEPTS-CAC.jpeg";
+import cacImage from "@/assets/images/METRICMIND-CONCEPTS-CAC.jpg";
 
 const values = [
   { title: "Skill", body: "Experienced hands who know the systems, forms and tools, so it's done right the first time." },
@@ -24,7 +26,7 @@ const faqs = [
   },
   {
     q: "Is Metricmind Concepts a registered business?",
-    a: "Yes. We're registered with the Corporate Affairs Commission (CAC) as a business name, registration number 7539050.",
+    a: "Yes. We're registered with the Corporate Affairs Commission (CAC) as a limited company, Metricmind Digital Concepts Ltd (RC 9193173), and with the EFCC's Special Control Unit Against Money Laundering (SCUML), RN SC 011500823.",
   },
   {
     q: "Who do you work with?",
@@ -40,7 +42,19 @@ const faqs = [
   },
 ];
 
-const highlights = services.map((s) => ({ src: s.imageUrl, alt: s.title }));
+// Mix of classroom and business-support photos for the About reel
+const highlights = [
+  photos.teamTalk,
+  photos.whiteboard,
+  photos.consult,
+  photos.kidsLaptop,
+  photos.deskWork,
+  photos.coursePoster,
+  photos.studentsSmile,
+  photos.thinking,
+  photos.mentorBack,
+  photos.deskSmile,
+];
 
 export default function AboutPage() {
   return (
@@ -95,21 +109,8 @@ export default function AboutPage() {
       </section>
 
       {/* ============ HIGHLIGHT REEL ============ */}
-      <section aria-label="Highlights" className="pb-16 md:pb-24 overflow-hidden">
-        <div className="mm-marquee flex w-max gap-4">
-          {[...highlights, ...highlights].map((h, i) => (
-            <div
-              key={i}
-              className={`relative shrink-0 overflow-hidden rounded-2xl w-[240px] md:w-[320px] ${i % 2 ? "h-[180px] md:h-[220px] mt-8" : "h-[220px] md:h-[260px]"}`}
-              aria-hidden={i >= highlights.length}
-            >
-              <Image src={h.src} alt={i < highlights.length ? h.alt : ""} fill sizes="320px" className="object-cover grayscale-[40%]" />
-              <span className="absolute bottom-3 left-3 rounded-full bg-[var(--mm-paper-2)]/95 px-3 py-1 text-xs font-medium">
-                {h.alt}
-              </span>
-            </div>
-          ))}
-        </div>
+      <section aria-label="Highlights" className="pb-16 md:pb-24">
+        <PhotoReel photos={highlights} />
       </section>
 
       {/* ============ STORY ============ */}
@@ -142,11 +143,28 @@ export default function AboutPage() {
               </p>
             </Reveal>
 
-            <Reveal delay={240}>
+            <Reveal delay={220}>
+              <div className="grid grid-cols-5 gap-3 pt-2">
+                <figure className="col-span-3 relative aspect-[4/3] overflow-hidden rounded-3xl">
+                  <Image src={photos.storefront.src} alt={photos.storefront.alt} fill sizes="(min-width: 1024px) 420px, 60vw" placeholder="blur" className="object-cover" />
+                  <figcaption className="absolute left-3 bottom-3 rounded-full bg-(--mm-paper-2)/95 px-3 py-1 text-xs font-medium text-(--mm-ink)">
+                    Our office · Omuma Road, Aba
+                  </figcaption>
+                </figure>
+                <figure className="col-span-2 relative overflow-hidden rounded-3xl">
+                  <Image src={photos.teamStreet.src} alt={photos.teamStreet.alt} fill sizes="(min-width: 1024px) 280px, 40vw" placeholder="blur" className="object-cover" />
+                  <figcaption className="absolute left-3 bottom-3 rounded-full bg-(--mm-ink)/90 px-3 py-1 text-xs font-medium text-white">
+                    The team
+                  </figcaption>
+                </figure>
+              </div>
+            </Reveal>
+
+            <Reveal delay={260}>
               <div className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden bg-[var(--mm-line)] border border-[var(--mm-line)] mt-4">
                 {[
-                  { k: "CAC registration", v: "BN 7539050" },
-                  { k: "Registered", v: "May 2024" },
+                  { k: "CAC registration", v: "RC 9193173" },
+                  { k: "Company type", v: "Limited (Ltd)" },
                   { k: "Service categories", v: String(services.length) },
                   { k: "Based in", v: "Aba, Abia" },
                 ].map((f) => (
@@ -241,10 +259,15 @@ export default function AboutPage() {
               </h2>
               <p className="mt-5 text-white/65 leading-relaxed max-w-lg">
                 Registered with the Corporate Affairs Commission under the Companies and Allied Matters Act 2020,
-                for cybercafé and business centre services, ICT consultancy and general merchandise.
+                and with the EFCC&apos;s Special Control Unit Against Money Laundering (SCUML). We help our clients
+                get the same registrations for their own businesses.
               </p>
               <ul className="mt-8 space-y-3 text-[15px]">
-                {["Business Name Registration No. 7539050", "Registered on 31 May 2024", "Principal place of business: Omuma Road, Aba"].map((item) => (
+                {[
+                  `CAC ${credentials.cac.number} · ${credentials.cac.entity} · incorporated ${credentials.cac.incorporated}`,
+                  `SCUML (EFCC) ${credentials.scuml.number} · ${credentials.scuml.entity}`,
+                  "Principal place of business: Omuma Road, Aba",
+                ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-[var(--mm-lime)] text-[var(--mm-ink)] flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5" />
@@ -254,13 +277,31 @@ export default function AboutPage() {
                 ))}
               </ul>
             </div>
-            <figure className="relative mx-auto w-full max-w-xs">
+            <figure className="relative mx-auto w-full max-w-sm pl-10 pb-28 sm:pb-32">
+              {/* accredited-agent flyer peeking out behind the certificates */}
+              <Image
+                src={photos.agentFlyer.src}
+                alt={photos.agentFlyer.alt}
+                placeholder="blur"
+                className="absolute left-0 top-16 w-[48%] h-auto rounded-2xl -rotate-[8deg] shadow-[0_25px_50px_-20px_rgba(0,0,0,0.6)]"
+                sizes="180px"
+              />
               <Image
                 src={cacImage}
-                alt="Metricmind Concepts CAC certificate of business name registration, BN 7539050"
-                className="rounded-2xl rotate-[2deg] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]"
-                sizes="(min-width: 1024px) 320px, 80vw"
+                alt="CAC Certificate of Incorporation for Metricmind Digital Concepts Ltd, Company Registration No. RC 9193173"
+                className="relative w-[78%] h-auto rounded-2xl rotate-[2deg] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]"
+                sizes="(min-width: 1024px) 280px, 70vw"
               />
+              <Image
+                src={photos.scuml.src}
+                alt={photos.scuml.alt}
+                placeholder="blur"
+                className="absolute right-0 bottom-0 w-[80%] h-auto rounded-2xl border-4 border-(--mm-ink) shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)] -rotate-[2deg]"
+                sizes="(min-width: 1024px) 300px, 75vw"
+              />
+              <figcaption className="absolute -bottom-3 left-6 rounded-full bg-(--mm-lime) text-(--mm-ink) px-4 py-1.5 text-xs font-semibold shadow-lg">
+                CAC + SCUML (EFCC) registered
+              </figcaption>
             </figure>
           </div>
         </Reveal>

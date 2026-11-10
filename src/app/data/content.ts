@@ -1,11 +1,12 @@
 // Shared content data for all pages
+import { photos } from "./media";
 
 export const services = [
   {
     icon: "🖥️",
     title: "Computer & IT Solutions",
     description: "Empowering your digital world with reliable IT services.",
-    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    imageUrl: photos.instructorsLaptop.src,
     services: [
       "General Computer Services & Maintenance",
       "Networking & System Setup",
@@ -18,10 +19,12 @@ export const services = [
     icon: "🏛️",
     title: "CAC & Business Support",
     description: "Start, grow, and manage your business with ease.",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    imageUrl: photos.consult.src,
     services: [
       "Pre-Incorporation and Post-Incorporation Services",
       "Business Name Registration & Upgrades",
+      "SCUML Registration (EFCC certificate)",
+      "Name & Logo Trademark Registration (all classes)",
       "Annual Returns Filing",
       "TIN (Tax Identification Number) Processing",
       "Business Branding & Consultancy",
@@ -31,7 +34,7 @@ export const services = [
     icon: "🎓",
     title: "Computer Training & Digital Skills",
     description: "Learn the skills that power today's digital world.",
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    imageUrl: photos.whiteboard.src,
     services: [
       "Computer Application Packages (MS Word, Excel, PowerPoint, CorelDraw, etc.)",
       "Programming Classes (HTML, Python, Java, etc.)",
@@ -44,7 +47,7 @@ export const services = [
     icon: "🌐",
     title: "Online Applications & Digital Services",
     description: "Simplifying global access and online processes.",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    imageUrl: photos.deskWork.src,
     services: [
       "National & International Job Applications",
       "International School Admissions & Visa Assistance",
@@ -60,7 +63,7 @@ export const services = [
     icon: "🎨",
     title: "Graphics Design & Printing",
     description: "Creativity that makes your brand stand out.",
-    imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    imageUrl: photos.documents.src,
     services: [
       "Flex & Banner Design and Printing",
       "Premium Business/Complementary Cards",
@@ -75,7 +78,7 @@ export const services = [
     icon: "💡",
     title: "Additional Services",
     description: "Expanding our reach to serve you better.",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    imageUrl: photos.logoScreen.src,
     services: [
       "Website Design & Development",
       "Social Media Management & Digital Marketing",
