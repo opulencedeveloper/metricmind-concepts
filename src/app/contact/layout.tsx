@@ -3,7 +3,7 @@ import { generateSEOMetadata } from "../lib/seo";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Contact Us - Metricmind Concepts",
-  description: "Get in touch with Metricmind Concepts in Aba, Abia State, Nigeria. Contact us for IT solutions, computer training, CAC services, graphics design, and digital solutions. Located at No. 7 Omuma Road, By Amaogbonna, Off Osusu Road, Aba. Phone: +234 810 259 2057.",
+  description: "Get in touch with Metricmind Concepts in Aba, Abia State, Nigeria. Contact us for IT solutions, computer training, CAC services, graphics design, and digital solutions. Located at No. 7 Omuma Road, By Amaogbonna/Osusu Road, Aba. Phone: +234 810 259 2057.",
   path: "/contact",
   keywords: [
     "Contact Metricmind Concepts",

@@ -22,11 +22,11 @@ export default function StructuredData() {
       contentUrl: "https://metricmindconcepts.com/logo.jpg",
     },
     telephone: "+234-810-259-2057",
-    email: "metricmindconcepts@gmail.com",
+    email: "info@metricmindconcepts.com",
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "No. 7 Omuma Road, By Amaogbonna, Off Osusu Road",
+      streetAddress: "No. 7 Omuma Road, By Amaogbonna/Osusu Road",
       addressLocality: "Aba",
       addressRegion: "Abia State",
       postalCode: "440001",
@@ -46,7 +46,7 @@ export default function StructuredData() {
         "@type": "ContactPoint",
         telephone: "+234-810-259-2057",
         contactType: "Customer Service",
-        email: "metricmindconcepts@gmail.com",
+        email: "info@metricmindconcepts.com",
         areaServed: "NG",
         availableLanguage: "en",
       },
@@ -54,7 +54,7 @@ export default function StructuredData() {
         "@type": "ContactPoint",
         telephone: "+234-810-259-2057",
         contactType: "Sales",
-        email: "metricmindconcepts@gmail.com",
+        email: "info@metricmindconcepts.com",
         areaServed: "NG",
         availableLanguage: "en",
       },
@@ -178,7 +178,7 @@ export default function StructuredData() {
         name: "Where is Metricmind Concepts located?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Metricmind Concepts is located at No. 7 Omuma Road, By Amaogbonna, Off Osusu Road, Aba, Abia State, Nigeria.",
+          text: "Metricmind Concepts is located at No. 7 Omuma Road, By Amaogbonna/Osusu Road, Aba, Abia State, Nigeria.",
         },
       },
       {
@@ -186,7 +186,7 @@ export default function StructuredData() {
         name: "How can I contact Metricmind Concepts?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can contact Metricmind Concepts by phone at +234 810 259 2057, email at metricmindconcepts@gmail.com, or visit our office in Aba, Abia State.",
+          text: "You can contact Metricmind Concepts by phone at +234 810 259 2057, email at info@metricmindconcepts.com, or visit our office in Aba, Abia State.",
         },
       },
       {

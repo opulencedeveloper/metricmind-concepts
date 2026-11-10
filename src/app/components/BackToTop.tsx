@@ -1,57 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const onScroll = () => setIsVisible(window.scrollY > 400);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-[#1e40af] text-white rounded-full shadow-2xl hover:bg-[#2563eb] transition-colors"
-          aria-label="Back to top"
-          whileHover={{ scale: 1.1, y: -4 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      tabIndex={isVisible ? 0 : -1}
+      // sits above the Tawk.to chat bubble in the bottom-right corner
+      className={`fixed bottom-24 right-5 z-40 w-12 h-12 rounded-full bg-[var(--mm-ink,#121212)] text-[var(--mm-lime,#b6f23a)] flex items-center justify-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all duration-300 ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75 pointer-events-none"
+      }`}
+    >
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6" />
+      </svg>
+    </button>
   );
 }

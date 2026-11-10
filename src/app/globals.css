@@ -347,6 +347,65 @@ a, button, input, textarea, select {
   }
 }
 
+/* ===== Landing page (.mm) — brand tokens from the logo: ink, circuit green, magenta ===== */
+.mm {
+  --mm-paper: #f3efe4;
+  --mm-paper-2: #fbf9f2;
+  --mm-ink: #121212;
+  --mm-ink-2: #2a2a2a;
+  --mm-muted: #6b625b;
+  --mm-line: rgba(18, 18, 18, 0.12);
+  --mm-lime: #b6f23a;
+  --mm-green: #6fae2f;
+  --mm-magenta: #d61bc4;
+  background: var(--mm-paper);
+  color: var(--mm-ink);
+  font-family: var(--font-geist), var(--font-inter), system-ui, sans-serif;
+}
+.mm .serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.mm ::selection {
+  background: var(--mm-lime);
+  color: var(--mm-ink);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes mm-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.mm-marquee {
+  animation: mm-marquee 38s linear infinite;
+}
+@keyframes mm-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(111, 174, 47, 0.55); }
+  50% { box-shadow: 0 0 0 6px rgba(111, 174, 47, 0); }
+}
+.mm-pulse {
+  animation: mm-pulse 2s ease-in-out infinite;
+}
+.mm details > summary { list-style: none; cursor: pointer; }
+.mm details > summary::-webkit-details-marker { display: none; }
+.mm details[open] .mm-plus { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .mm-marquee, .mm-pulse { animation: none; }
+}
+
 /* 3D Effects and Animations */
 @keyframes float-3d {
   0%, 100% {

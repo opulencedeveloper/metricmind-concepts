@@ -1,300 +1,127 @@
-"use client";
-
-import { useState, FormEvent } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
-import BackToTop from "../components/BackToTop";
 import Footer from "../components/Footer";
-import ScrollReveal from "../components/ScrollReveal";
-import GSAPAnimations from "../components/GSAPAnimations";
+import BackToTop from "../components/BackToTop";
+import Reveal from "../components/Reveal";
+import { Arrow, CircuitTraces, Eyebrow, EMAIL, MAPS, PHONE_DISPLAY, PHONE_TEL, PhoneIcon, PinIcon, WHATSAPP, WhatsAppIcon } from "../components/mm";
+import { mmFonts } from "../lib/fonts";
 import { contactInfo } from "../data/content";
+import ContactForm from "./ContactForm";
+
+const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(contactInfo.address)}&output=embed`;
+
+const channels = [
+  { href: WHATSAPP, external: true, title: "WhatsApp", sub: "Fastest reply", icon: <WhatsAppIcon className="w-5 h-5" />, primary: true },
+  { href: PHONE_TEL, title: "Call us", sub: PHONE_DISPLAY, icon: <PhoneIcon className="w-5 h-5" /> },
+  { href: `mailto:${EMAIL}`, title: "Email", sub: EMAIL, icon: <span className="text-lg leading-none">@</span> },
+  { href: MAPS, external: true, title: "Visit the office", sub: contactInfo.addressShort, icon: <PinIcon className="w-5 h-5" /> },
+];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus({
-          type: "success",
-          message: data.message || "Your message has been sent successfully! We will get back to you soon.",
-        });
-        // Reset form
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message: data.error || "Failed to send message. Please try again later.",
-        });
-      }
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "Network error. Please check your connection and try again.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-    // Clear status when user starts typing
-    if (submitStatus.type) {
-      setSubmitStatus({ type: null, message: "" });
-    }
-  };
   return (
-    <main className="min-h-screen bg-white" itemScope itemType="https://schema.org/ContactPage">
-      <GSAPAnimations />
+    <main className={`mm ${mmFonts} min-h-screen overflow-x-hidden`} itemScope itemType="https://schema.org/ContactPage">
       <Navigation />
 
-      {/* Contact Section */}
-      <section className="relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto">
-          <motion.header
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16 md:mb-20"
-          >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gray-900 tracking-tight" itemProp="headline">Get In Touch</h1>
-            <motion.p
-              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </motion.p>
-            <motion.div
-              className="w-16 h-1 bg-gradient-to-r from-[#1e40af] to-[#2563eb] mx-auto rounded-full"
-              initial={{ width: 0 }}
-              whileInView={{ width: 64 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            />
-          </motion.header>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <ScrollReveal direction="left" delay={0.2} className="h-full">
-              <motion.div
-                className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-sm hover:shadow-lg h-full transition-shadow duration-300"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h2 className="text-2xl font-semibold mb-8 text-gray-900">Contact Information</h2>
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e40af]/10 flex items-center justify-center group-hover:bg-[#1e40af] transition-colors duration-300 flex-shrink-0">
-                      <span className="text-lg">📍</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1 text-gray-900">Address</p>
-                      <p className="text-gray-600 leading-relaxed">
-                        {contactInfo.address}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e40af]/10 flex items-center justify-center group-hover:bg-[#1e40af] transition-colors duration-300 flex-shrink-0">
-                      <span className="text-lg">📞</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1 text-gray-900">Phone</p>
-                      <a href={`tel:${contactInfo.phone.replace(/\s/g, "")}`} className="text-[#1e40af] hover:text-[#2563eb] transition-colors">
-                        {contactInfo.phone}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e40af]/10 flex items-center justify-center group-hover:bg-[#1e40af] transition-colors duration-300 flex-shrink-0">
-                      <span className="text-lg">📧</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1 text-gray-900">Email</p>
-                      <a href={`mailto:${contactInfo.email}`} className="text-[#1e40af] hover:text-[#2563eb] transition-colors block mb-1">
-                        {contactInfo.email}
-                      </a>
-                      <a href={`mailto:${contactInfo.email2}`} className="text-[#1e40af] hover:text-[#2563eb] transition-colors">
-                        {contactInfo.email2}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e40af]/10 flex items-center justify-center group-hover:bg-[#1e40af] transition-colors duration-300 flex-shrink-0">
-                      <span className="text-lg">💬</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold mb-1 text-gray-900">Social Media</p>
-                      <p className="text-gray-600">{contactInfo.social}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right" delay={0.3} className="h-full">
-              <motion.div
-                className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-sm hover:shadow-lg h-full transition-shadow duration-300"
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h2 className="text-2xl font-semibold mb-8 text-gray-900">Send us a Message</h2>
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      required
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-label="Your Name"
-                    />
-                  </motion.div>
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Your Email"
-                      required
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-label="Your Email"
-                    />
-                  </motion.div>
-                  <motion.div
-                    whileFocus={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Your Message"
-                      rows={5}
-                      required
-                      disabled={isSubmitting}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1e40af]/20 focus:border-[#1e40af] transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-label="Your Message"
-                    ></textarea>
-                  </motion.div>
-
-                  {/* Status Messages */}
-                  <AnimatePresence>
-                    {submitStatus.type && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className={`p-4 rounded-lg ${
-                          submitStatus.type === "success"
-                            ? "bg-green-50 border border-green-200 text-green-800"
-                            : "bg-red-50 border border-red-200 text-red-800"
-                        }`}
-                      >
-                        <div className="flex items-center space-x-2">
-                          <span className="text-xl font-semibold">
-                            {submitStatus.type === "success" ? "✓" : "✕"}
-                          </span>
-                          <p className="text-sm font-medium">{submitStatus.message}</p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  <motion.button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-[#1e40af] text-white rounded-lg font-semibold hover:bg-[#2563eb] transition-colors shadow-lg relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
-                    whileHover={!isSubmitting ? { scale: 1.02, y: -2 } : {}}
-                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  >
-                    <span className="relative z-10 flex items-center justify-center space-x-2">
-                      {isSubmitting ? (
-                        <>
-                          <motion.svg
-                            className="animate-spin h-5 w-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </motion.svg>
-                          <span>Sending...</span>
-                        </>
-                      ) : (
-                        <span>Send Message</span>
-                      )}
-                    </span>
-                    {!isSubmitting && (
-                      <motion.span
-                        className="absolute inset-0 bg-gradient-to-r from-[#2563eb] to-[#2563eb]"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </motion.button>
-                </form>
-              </motion.div>
-            </ScrollReveal>
-          </div>
+      {/* ============ HERO ============ */}
+      <section className="relative px-4 md:px-12 pt-28 md:pt-40 pb-12 md:pb-16">
+        <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
+        <div className="relative max-w-[77.5rem] mx-auto">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)] mm-pulse" /> We usually reply quickly on WhatsApp
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="mt-6 text-[52px] sm:text-[80px] lg:text-[104px] font-semibold leading-[0.9] tracking-[-0.045em]" itemProp="headline">
+              Let&apos;s <span className="serif text-[var(--mm-magenta)]">talk.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-[var(--mm-muted)]">
+              Questions, quotes or a quick favour. Reach us whichever way suits you, or send a message below.
+            </p>
+          </Reveal>
         </div>
+      </section>
+
+      {/* ============ CHANNELS ============ */}
+      <section className="px-4 md:px-12 pb-16 md:pb-20">
+        <div className="max-w-[77.5rem] mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {channels.map((c, i) => (
+            <Reveal key={c.title} delay={i * 70}>
+              <a
+                href={c.href}
+                {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`group flex h-full flex-col justify-between gap-12 rounded-[2rem] p-6 border transition-colors ${
+                  c.primary
+                    ? "bg-[var(--mm-ink)] text-white border-transparent hover:bg-[var(--mm-ink-2)]"
+                    : "bg-[var(--mm-paper-2)] border-[var(--mm-line)] hover:border-[var(--mm-ink)]"
+                }`}
+              >
+                <span className={`w-11 h-11 rounded-full flex items-center justify-center ${c.primary ? "bg-[var(--mm-lime)] text-[var(--mm-ink)]" : "bg-[var(--mm-paper)]"}`}>
+                  {c.icon}
+                </span>
+                <span className="flex items-end justify-between gap-3">
+                  <span className="min-w-0">
+                    <span className="block text-lg font-semibold tracking-[-0.02em]">{c.title}</span>
+                    <span className={`block text-sm truncate ${c.primary ? "text-white/60" : "text-[var(--mm-muted)]"}`}>{c.sub}</span>
+                  </span>
+                  <Arrow className="w-5 h-5 shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ FORM + MAP ============ */}
+      <section className="px-4 md:px-12 py-16 md:py-24 bg-[var(--mm-paper-2)] border-y border-[var(--mm-line)]">
+        <div className="max-w-[77.5rem] mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-14 items-stretch">
+          <Reveal>
+            <Eyebrow>Send a message</Eyebrow>
+            <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
+              Tell us what <span className="serif">you need.</span>
+            </h2>
+            <p className="mt-3 mb-8 text-[var(--mm-muted)]">We&apos;ll reply by email as soon as possible.</p>
+            <ContactForm />
+          </Reveal>
+
+          <Reveal delay={120} className="flex flex-col">
+            <div className="relative flex-1 min-h-[320px] overflow-hidden rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper)]">
+              <iframe
+                title="Map showing Metricmind Concepts office in Aba"
+                src={MAP_EMBED}
+                className="absolute inset-0 w-full h-full grayscale-[60%]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <a
+              href={MAPS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-start gap-3 rounded-2xl bg-[var(--mm-ink)] text-white p-5 text-[15px] hover:bg-[var(--mm-ink-2)]"
+              itemProp="address"
+            >
+              <PinIcon className="w-5 h-5 mt-0.5 shrink-0 text-[var(--mm-lime)]" />
+              <span>
+                <span className="block text-white/90">{contactInfo.address}</span>
+                <span className="mt-1 inline-flex items-center gap-1 text-sm text-[var(--mm-lime)]">
+                  Get directions <Arrow className="w-3.5 h-3.5" />
+                </span>
+              </span>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ SOCIAL ============ */}
+      <section className="px-4 md:px-12 py-16 md:py-20">
+        <Reveal className="max-w-[77.5rem] mx-auto text-center">
+          <p className="text-xs uppercase tracking-[0.2em] text-[var(--mm-muted)]">Find us on social media</p>
+          <p className="mt-3 text-[32px] md:text-[56px] font-semibold tracking-[-0.045em]">
+            <span className="serif text-[var(--mm-magenta)]">{contactInfo.social}</span>
+          </p>
+        </Reveal>
       </section>
 
       <Footer />
@@ -302,4 +129,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

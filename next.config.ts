@@ -19,10 +19,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   // SWC minification is enabled by default in Next.js 16+
-  // Optimize for search engines
-  experimental: {
-    optimizeCss: true,
-  },
   // Headers for SEO and security
   async headers() {
     return [

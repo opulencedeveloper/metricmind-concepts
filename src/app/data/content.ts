@@ -93,6 +93,31 @@ export const whyChooseUs = [
   "Innovative Solutions Tailored to Your Needs",
 ];
 
+// Metricmind Academy: the company's e-learning product
+export const academy = {
+  name: "Metricmind Academy",
+  slogan: "Learn. Build. Innovate.",
+  tagline: "Gain in-demand digital skills and kick-start a successful tech career.",
+  courses: [
+    { title: "Computer Basics", blurb: "Confidently use computers, files, the internet and office tools." },
+    { title: "Web Development", blurb: "Build and launch real websites with HTML, CSS and JavaScript." },
+    { title: "Graphics Design", blurb: "Create logos, flyers and brand visuals that stand out." },
+    { title: "UI/UX Design", blurb: "Design apps and websites people find easy and enjoyable to use." },
+    { title: "Digital Marketing", blurb: "Grow brands with social media, content, ads and analytics." },
+    { title: "Data Analytics", blurb: "Turn raw data into clear insights with spreadsheets and dashboards." },
+    { title: "Cyber Security", blurb: "Learn to protect systems, networks and data from threats." },
+    { title: "AI Automation", blurb: "Use AI tools to automate everyday tasks and business workflows." },
+    { title: "AI Video Creation", blurb: "Produce engaging videos quickly with modern AI tools." },
+    { title: "ArchiCAD / Artlantis Studio", blurb: "Model buildings and render realistic architectural visuals." },
+  ],
+  benefits: [
+    { title: "Hands-on learning", body: "Practical, project-based lessons. You learn by doing, not just watching." },
+    { title: "Flexible learning", body: "Study at a pace that fits your schedule, across a wide range of IT skills." },
+    { title: "Certificate of completion", body: "Earn a certificate to show employers and clients what you can do." },
+    { title: "Career mentorship", body: "Guidance from experienced professionals as you start your tech career." },
+  ],
+};
+
 export const nyscServices = [
   "NYSC Online Registration & Redeployment",
   "Biometric (Fingerprint) Capturing",
@@ -104,10 +129,10 @@ export const nyscServices = [
 ];
 
 export const contactInfo = {
-  address: "No. 7 Omuma Road, By Amaogbonna, Off Osusu Road, Aba, Abia State, Nigeria",
+  address: "No. 7 Omuma Road, By Amaogbonna/Osusu Road, Aba, Abia State, Nigeria",
+  addressShort: "No. 7 Omuma Road, Aba",
   phone: "+234 810 259 2057",
-  email: "metricmindconcepts@gmail.com",
-  email2: "contacts@metricmind.com",
+  email: "info@metricmindconcepts.com",
   social: "@MetricmindConcepts",
 };
 

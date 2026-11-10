@@ -42,6 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
+      url: `${baseUrl}/academy`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/academy`,
+          'en-NG': `${baseUrl}/academy`,
+        },
+      },
+    },
+    {
       url: `${baseUrl}/nysc`,
       lastModified: now,
       changeFrequency: 'monthly',
