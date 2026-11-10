@@ -6,20 +6,20 @@ export default function StructuredData() {
     "@type": ["Organization", "LocalBusiness"],
     name: "Metricmind Concepts",
     description: "Trusted IT and digital solutions company in Aba, Abia State, Nigeria. Providing computer training, CAC services, graphics design, online applications, and comprehensive digital solutions for businesses and individuals.",
-    url: "https://metricmindconcepts.com",
+    url: "https://www.metricmindconcepts.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://metricmindconcepts.com/logo.jpg",
+      url: "https://www.metricmindconcepts.com/logo.jpg",
       width: 1200,
       height: 630,
-      contentUrl: "https://metricmindconcepts.com/logo.jpg",
+      contentUrl: "https://www.metricmindconcepts.com/logo.jpg",
     },
     image: {
       "@type": "ImageObject",
-      url: "https://metricmindconcepts.com/logo.jpg",
+      url: "https://www.metricmindconcepts.com/logo.jpg",
       width: 1200,
       height: 630,
-      contentUrl: "https://metricmindconcepts.com/logo.jpg",
+      contentUrl: "https://www.metricmindconcepts.com/logo.jpg",
     },
     telephone: "+234-810-259-2057",
     email: "info@metricmindconcepts.com",
@@ -137,12 +137,12 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Metricmind Concepts",
-    url: "https://metricmindconcepts.com",
+    url: "https://www.metricmindconcepts.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://metricmindconcepts.com/?s={search_term_string}",
+        urlTemplate: "https://www.metricmindconcepts.com/?s={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -156,7 +156,7 @@ export default function StructuredData() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://metricmindconcepts.com",
+        item: "https://www.metricmindconcepts.com",
       },
     ],
   };
@@ -235,9 +235,9 @@ export default function StructuredData() {
     "@type": "VideoObject",
     name: "Metricmind Concepts - IT & Digital Solutions",
     description: "Learn about Metricmind Concepts and our comprehensive IT and digital solutions services.",
-    thumbnailUrl: "https://metricmindconcepts.com/logo.jpg",
+    thumbnailUrl: "https://www.metricmindconcepts.com/logo.jpg",
     uploadDate: "2024-01-01",
-    contentUrl: "https://metricmindconcepts.com",
+    contentUrl: "https://www.metricmindconcepts.com",
   };
 
   return (

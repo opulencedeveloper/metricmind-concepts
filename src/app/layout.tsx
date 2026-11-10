@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "Aba IT services",
     "Abia State digital solutions",
   ],
-  authors: [{ name: "Metricmind Concepts", url: "https://metricmindconcepts.com" }],
+  authors: [{ name: "Metricmind Concepts", url: "https://www.metricmindconcepts.com" }],
   creator: "Metricmind Concepts",
   publisher: "Metricmind Concepts",
   formatDetection: {
@@ -50,24 +50,24 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://metricmindconcepts.com"),
+  metadataBase: new URL("https://www.metricmindconcepts.com"),
   alternates: {
     canonical: "/",
     languages: {
-      "en-NG": "https://metricmindconcepts.com",
-      "en": "https://metricmindconcepts.com",
+      "en-NG": "https://www.metricmindconcepts.com",
+      "en": "https://www.metricmindconcepts.com",
     },
   },
   openGraph: {
     title: "Metricmind Concepts - Premium IT & Digital Solutions | Aba, Nigeria",
     description: "Trusted IT and digital solutions company in Aba, Abia State, Nigeria. Expert computer training, CAC services, graphics design, online applications, and comprehensive digital solutions for businesses and individuals.",
-    url: "https://metricmindconcepts.com",
+    url: "https://www.metricmindconcepts.com",
     siteName: "Metricmind Concepts",
     locale: "en_NG",
     type: "website",
     images: [
       {
-        url: "https://metricmindconcepts.com/og-image.png",
+        url: "https://www.metricmindconcepts.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Metricmind Concepts Logo - Premium IT & Digital Solutions in Aba, Nigeria",
@@ -86,9 +86,9 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "HandheldFriendly": "true",
     "MobileOptimized": "320",
-    "og:image": "https://metricmindconcepts.com/og-image.png",
-    "og:image:url": "https://metricmindconcepts.com/og-image.png",
-    "og:image:secure_url": "https://metricmindconcepts.com/og-image.png",
+    "og:image": "https://www.metricmindconcepts.com/og-image.png",
+    "og:image:url": "https://www.metricmindconcepts.com/og-image.png",
+    "og:image:secure_url": "https://www.metricmindconcepts.com/og-image.png",
     "og:image:width": "1200",
     "og:image:height": "630",
     "og:image:type": "image/png",
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
     description: "Trusted IT and digital solutions company in Aba, Abia State, Nigeria. Expert computer training, CAC services, graphics design, and comprehensive digital solutions.",
     images: [
       {
-        url: "https://metricmindconcepts.com/og-image.png",
+        url: "https://www.metricmindconcepts.com/og-image.png",
         alt: "Metricmind Concepts Logo - Premium IT & Digital Solutions",
         width: 1200,
         height: 630,

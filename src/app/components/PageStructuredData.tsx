@@ -17,7 +17,7 @@ export default function PageStructuredData({
   breadcrumbs,
   services,
 }: PageStructuredDataProps) {
-  const baseUrl = "https://metricmindconcepts.com";
+  const baseUrl = "https://www.metricmindconcepts.com";
 
   // WebPage Schema
   const webPageSchema = {

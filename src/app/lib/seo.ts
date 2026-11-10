@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-const siteUrl = "https://metricmindconcepts.com";
+const siteUrl = "https://www.metricmindconcepts.com";
 const siteName = "Metricmind Concepts";
 const defaultTitle = "Metricmind Concepts - Premium IT & Digital Solutions | Aba, Nigeria";
 const defaultDescription = "Trusted IT and digital solutions company in Aba, Abia State, Nigeria. Expert computer training, CAC services, graphics design, online applications, and comprehensive digital solutions for businesses and individuals.";
