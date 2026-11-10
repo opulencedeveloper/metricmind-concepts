@@ -59,7 +59,7 @@ export default function AboutPage() {
 
           <Reveal delay={60}>
             <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)]" /> Taking new clients in Aba
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)]" /> Taking new clients online &amp; in Aba
             </div>
           </Reveal>
 
@@ -125,8 +125,8 @@ export default function AboutPage() {
             <Reveal delay={60}>
               <p>
                 At Metricmind Concepts, we believe technology should work for everyone, not just big companies.
-                So we built one place in Aba where you can get your tech, business and online tasks done
-                properly, without running around town.
+                So we built one place, online and at our office in Aba, where you can get your tech, business
+                and online tasks done properly, wherever you are.
               </p>
             </Reveal>
             <Reveal delay={120}>

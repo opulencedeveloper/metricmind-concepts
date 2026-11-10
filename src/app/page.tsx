@@ -28,7 +28,7 @@ const marqueeItems = [
 const steps = [
   {
     title: "Reach out",
-    body: "Walk into our office in Aba, call, or send a WhatsApp message telling us what you need.",
+    body: "Send a WhatsApp message, call, or walk into our office in Aba and tell us what you need. Wherever you are, most services can be handled online.",
   },
   {
     title: "We handle it",
@@ -81,26 +81,26 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-28 md:pt-36 pb-16 md:pb-24">
         {/* faint circuit traces, echoing the logo */}
-        <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
+        <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-(--mm-green) opacity-25" />
 
         <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
           <div>
             <Reveal>
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] pl-2.5 pr-4 h-9 text-sm">
-                <span className="mm-pulse w-2 h-2 rounded-full bg-[var(--mm-green)]" />
-                <span className="text-[var(--mm-ink-2)]">Open for business in Aba, Abia State</span>
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-(--mm-line) bg-(--mm-paper-2) pl-2.5 pr-4 h-9 text-sm">
+                <span className="mm-pulse w-2 h-2 rounded-full bg-(--mm-green)" />
+                <span className="text-(--mm-ink-2)">Serving clients online everywhere · Office in Aba</span>
               </div>
             </Reveal>
 
             <Reveal delay={80}>
               <h1 className="mt-6 text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[4.6rem] font-semibold tracking-[-0.035em] text-balance">
-                Your <span className="serif text-[var(--mm-magenta)]">one-stop</span> hub for tech, business &amp;{" "}
+                Your <span className="serif text-(--mm-magenta)">one-stop</span> hub for tech, business &amp;{" "}
                 <span className="serif">digital</span> services.
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--mm-muted)]">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-(--mm-muted)">
                 From CAC registration and computer training to design, printing, NYSC and visa applications,
                 Metricmind Concepts gets it done fast, properly and at a fair price.
               </p>
@@ -111,15 +111,15 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={320}>
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[var(--mm-muted)]">
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-(--mm-muted)">
                 <span className="inline-flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[var(--mm-green)]" /> CAC registered · BN 7539050
+                  <Check className="w-4 h-4 text-(--mm-green)" /> CAC registered · BN 7539050
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[var(--mm-green)]" /> Walk-ins welcome
+                  <Check className="w-4 h-4 text-(--mm-green)" /> Online or walk-in
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Check className="w-4 h-4 text-[var(--mm-green)]" /> Private &amp; group training
+                  <Check className="w-4 h-4 text-(--mm-green)" /> Private &amp; group training
                 </span>
               </div>
             </Reveal>
@@ -128,8 +128,8 @@ export default function Home() {
           {/* Hero card: the "front desk" */}
           <Reveal delay={200}>
             <div className="relative">
-              <div className="absolute -inset-3 rounded-[2rem] bg-[var(--mm-lime)] rotate-[-2.5deg]" aria-hidden />
-              <div className="relative rounded-[1.75rem] bg-[var(--mm-ink)] text-white p-6 sm:p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]">
+              <div className="absolute -inset-3 rounded-4xl bg-(--mm-lime) rotate-[-2.5deg]" aria-hidden />
+              <div className="relative rounded-[1.75rem] bg-(--mm-ink) text-white p-6 sm:p-8 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)]">
                 <div className="flex items-center gap-4">
                   <Image
                     src={logo}
@@ -157,7 +157,7 @@ export default function Home() {
                     <li key={item} className="flex items-center justify-between py-3 text-[15px]">
                       <span className="text-white/90">{item}</span>
                       <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-                        <Check className="w-3.5 h-3.5 text-[var(--mm-lime)]" />
+                        <Check className="w-3.5 h-3.5 text-(--mm-lime)" />
                       </span>
                     </li>
                   ))}
@@ -169,7 +169,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="mt-6 flex items-start gap-3 rounded-2xl bg-white/5 hover:bg-white/10 p-4 text-sm"
                 >
-                  <PinIcon className="w-5 h-5 mt-0.5 shrink-0 text-[var(--mm-lime)]" />
+                  <PinIcon className="w-5 h-5 mt-0.5 shrink-0 text-(--mm-lime)" />
                   <span className="text-white/75 leading-relaxed">{contactInfo.address}</span>
                 </a>
               </div>
@@ -179,12 +179,12 @@ export default function Home() {
       </section>
 
       {/* ============ MARQUEE ============ */}
-      <section aria-label="What we do" className="border-y border-[var(--mm-line)] bg-[var(--mm-paper-2)] py-5 overflow-hidden">
+      <section aria-label="What we do" className="border-y border-(--mm-line) bg-(--mm-paper-2) py-5 overflow-hidden">
         <div className="mm-marquee flex w-max gap-10 whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-10 text-lg md:text-xl font-medium text-[var(--mm-ink-2)]" aria-hidden={i >= marqueeItems.length}>
+            <span key={i} className="flex items-center gap-10 text-lg md:text-xl font-medium text-(--mm-ink-2)" aria-hidden={i >= marqueeItems.length}>
               {item}
-              <span className="text-[var(--mm-magenta)]">✳</span>
+              <span className="text-(--mm-magenta)">✳</span>
             </span>
           ))}
         </div>
@@ -252,10 +252,10 @@ export default function Home() {
                   <div className="flex flex-1 flex-col p-4 pt-5">
                     <div className="flex items-start justify-between gap-4">
                       <h3 className="text-xl font-semibold tracking-[-0.02em] leading-snug">{service.title}</h3>
-                      <span className="serif text-2xl text-[var(--mm-muted)]">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="serif text-2xl text-(--mm-muted)">{String(i + 1).padStart(2, "0")}</span>
                     </div>
-                    <p className="mt-2 text-[15px] text-[var(--mm-muted)]">{service.description}</p>
-                    <ul className="mt-4 space-y-1.5 text-sm text-[var(--mm-ink-2)]">
+                    <p className="mt-2 text-[15px] text-(--mm-muted)">{service.description}</p>
+                    <ul className="mt-4 space-y-1.5 text-sm text-(--mm-ink-2)">
                       {service.services.slice(0, 3).map((s) => (
                         <li key={s} className="flex gap-2">
                           <span className="mt-[7px] w-1 h-1 rounded-full bg-[var(--mm-green)] shrink-0" />

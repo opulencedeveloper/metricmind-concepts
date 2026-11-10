@@ -33,8 +33,8 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-7 max-w-xl text-base md:text-lg leading-relaxed text-[var(--mm-muted)]">
-              IT, business registration, training, online applications, design and printing, all from one
-              office in Aba. Pick a category, or just tell us what you need.
+              IT, business registration, training, online applications, design and printing, delivered online
+              wherever you are, or in person at our office in Aba. Pick a category, or just tell us what you need.
             </p>
           </Reveal>
 

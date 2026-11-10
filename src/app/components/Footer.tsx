@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="relative px-6 md:px-12 pt-14 md:pt-20 pb-12 grid lg:grid-cols-[1.3fr_1fr] gap-10 items-end border-b border-white/10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 h-8 text-[13px] text-white/75">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-lime)] mm-pulse" /> Open for business in Aba
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-lime)] mm-pulse" /> Online everywhere · Office in Aba
             </div>
             <p className="mt-6 text-[40px] md:text-[64px] font-semibold leading-[0.95] tracking-[-0.045em]">
               Got something <span className="serif text-[var(--mm-lime)]">to get done?</span>

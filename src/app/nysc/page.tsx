@@ -59,8 +59,8 @@ export default function NYSCPage() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-7 max-w-lg text-base md:text-lg leading-relaxed text-white/65">
-                  Registration, biometrics, corrections, redeployment and printing, handled carefully by people who
-                  do it every day in Aba.
+                  Registration, corrections, redeployment, uploads and printing, handled carefully by people who
+                  do it every day. Online from anywhere, or walk in for biometrics in Aba.
                 </p>
               </Reveal>
               <Reveal delay={240} className="mt-9">
@@ -71,7 +71,7 @@ export default function NYSCPage() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { v: String(nyscServices.length), k: "NYSC services" },
-                  { v: "1", k: "Office in Aba" },
+                  { v: "24/7", k: "Message us online" },
                 ].map((s) => (
                   <div key={s.k} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                     <p className="text-4xl md:text-5xl font-semibold tracking-[-0.04em]">{s.v}</p>
