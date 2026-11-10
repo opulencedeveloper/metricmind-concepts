@@ -92,7 +92,7 @@ export default function Home() {
         {/* faint circuit traces, echoing the logo */}
         <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-(--mm-green) opacity-25" />
 
-        <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
+        <div className="relative max-w-[76rem] mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
           <div>
             <Reveal>
               <div className="inline-flex items-center gap-2.5 rounded-full border border-(--mm-line) bg-(--mm-paper-2) pl-2.5 pr-4 h-9 text-sm">
@@ -145,7 +145,7 @@ export default function Home() {
                 variant="shuffle"
                 photos={[photos.storefront, photos.whiteboard, photos.consult, photos.kidsLaptop, photos.teamStreet]}
                 priority
-                sizes="(min-width: 1024px) 480px, 100vw"
+                sizes="(min-width: 1024px) 620px, 100vw"
                 className="aspect-[4/5] sm:aspect-[5/6]"
                 cardClassName="rounded-[1.75rem] bg-(--mm-ink) ring-4 ring-(--mm-paper-2) shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]"
                 caption={
@@ -202,7 +202,7 @@ export default function Home() {
 
       {/* ============ STATS ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-[var(--mm-line)] border border-[var(--mm-line)]">
+        <div className="max-w-[82rem] mx-auto grid grid-cols-2 md:grid-cols-4 gap-px rounded-3xl overflow-hidden bg-[var(--mm-line)] border border-[var(--mm-line)]">
           {[
             { value: "500+", label: "Happy clients" },
             { value: "1,000+", label: "Projects completed" },
@@ -219,7 +219,7 @@ export default function Home() {
 
       {/* ============ LIFE AT METRICMIND: photo reel ============ */}
       <section aria-label="Life at Metricmind" className="pb-16 md:pb-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div className="max-w-[82rem] mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <Reveal>
             <Eyebrow>Life at Metricmind</Eyebrow>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-[-0.03em] max-w-2xl">
@@ -237,7 +237,7 @@ export default function Home() {
 
       {/* ============ SERVICES ============ */}
       <section id="services" className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <Reveal>
               <Eyebrow>What we do</Eyebrow>
@@ -307,7 +307,7 @@ export default function Home() {
 
       {/* ============ ACADEMY ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <Reveal className="max-w-6xl mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-lime)] p-8 md:p-14">
             <CircuitTraces className="absolute right-0 bottom-0 w-[480px] max-w-[80vw] text-[var(--mm-ink)] opacity-10" />
             <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
@@ -367,7 +367,7 @@ export default function Home() {
 
       {/* ============ NYSC ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <Reveal className="max-w-6xl mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white p-8 md:p-14">
             <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-[var(--mm-lime)]/15 blur-3xl" aria-hidden />
             <div className="relative grid lg:grid-cols-2 gap-10 items-center">
@@ -401,7 +401,7 @@ export default function Home() {
 
       {/* ============ HOW IT WORKS ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <Reveal>
             <Eyebrow>How it works</Eyebrow>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-[-0.03em] max-w-2xl">
@@ -426,7 +426,7 @@ export default function Home() {
 
       {/* ============ WHY US + CAC ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-[var(--mm-paper-2)] border-y border-[var(--mm-line)]">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-2 gap-14 items-center">
           <Reveal>
             <Eyebrow>Why Metricmind</Eyebrow>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-[-0.03em]">
@@ -483,7 +483,7 @@ export default function Home() {
 
       {/* ============ FAQ ============ */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-16">
           <Reveal>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-[-0.03em]">
@@ -513,7 +513,7 @@ export default function Home() {
 
       {/* ============ FINAL CTA ============ */}
       <section className="px-4 sm:px-6 lg:px-8 pb-20 md:pb-28">
-        <Reveal className="max-w-6xl mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white px-6 py-14 md:p-16 text-center">
             <svg className="pointer-events-none absolute left-0 bottom-0 w-[420px] max-w-[80vw] text-[var(--mm-lime)] opacity-20" viewBox="0 0 420 200" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
               <path d="M0 160h120l40-40h100l30 30h130" />

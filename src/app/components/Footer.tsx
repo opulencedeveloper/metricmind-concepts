@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="px-3 md:px-6 pb-3" itemScope itemType="https://schema.org/WPFooter">
-      <div className="relative mx-auto max-w-[80rem] overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white">
+      <div className="relative mx-auto max-w-[82rem] overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white">
         <CircuitTraces className="absolute right-0 top-0 w-[560px] max-w-[90vw] text-[var(--mm-lime)] opacity-10" />
 
         {/* Top: invitation + quick contact */}

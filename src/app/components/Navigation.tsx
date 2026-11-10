@@ -46,7 +46,7 @@ export default function Navigation() {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 md:px-6 pt-3">
       <nav
         aria-label="Main"
-        className={`pointer-events-auto mx-auto max-w-[77.5rem] rounded-full border transition-all duration-300 ${
+        className={`pointer-events-auto mx-auto max-w-[82rem] rounded-full border transition-all duration-300 ${
           scrolled || isOpen
             ? "border-[var(--mm-line)] bg-[var(--mm-paper-2)]/85 backdrop-blur-xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.25)]"
             : "border-transparent bg-transparent"
@@ -119,7 +119,7 @@ export default function Navigation() {
       {/* Mobile menu panel */}
       <div
         id="mobile-menu"
-        className={`lg:hidden mx-auto max-w-[77.5rem] mt-2 overflow-hidden rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper-2)] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] transition-all duration-300 origin-top ${
+        className={`lg:hidden mx-auto max-w-[82rem] mt-2 overflow-hidden rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper-2)] shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)] transition-all duration-300 origin-top ${
           isOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
         }`}
         aria-hidden={!isOpen}

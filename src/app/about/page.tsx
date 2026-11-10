@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       {/* ============ HERO: centred identity ============ */}
       <section className="px-4 md:px-12 pt-28 md:pt-40 pb-14 md:pb-20">
-        <div className="max-w-[77.5rem] mx-auto flex flex-col items-center text-center">
+        <div className="max-w-[82rem] mx-auto flex flex-col items-center text-center">
           <Reveal>
             <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full bg-white border border-[var(--mm-line)] p-1.5 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.35)]">
               <Image src={logo} alt="Metricmind Concepts logo" className="w-full h-full rounded-full object-cover" priority sizes="128px" />
@@ -115,7 +115,7 @@ export default function AboutPage() {
 
       {/* ============ STORY ============ */}
       <section id="story" className="px-4 md:px-12 py-16 md:py-24 border-t border-[var(--mm-line)]">
-        <div className="max-w-[77.5rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 self-start">
             <Eyebrow>About us</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
       {/* ============ WHAT WE DO: expandable rows ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24 bg-[var(--mm-paper-2)] border-y border-[var(--mm-line)]">
-        <div className="max-w-[77.5rem] mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <Reveal>
               <Eyebrow>What we do</Eyebrow>
@@ -227,7 +227,7 @@ export default function AboutPage() {
 
       {/* ============ VALUES ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24">
-        <div className="max-w-310 mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <Reveal>
             <Eyebrow>What drives us</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em] max-w-2xl">
@@ -250,7 +250,7 @@ export default function AboutPage() {
 
       {/* ============ CAC TRUST ============ */}
       <section className="px-4 md:px-12 py-8 md:py-12">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="rounded-[2rem] bg-[var(--mm-ink)] text-white p-8 md:p-14 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center overflow-hidden">
             <div>
               <Eyebrow dark>Registered &amp; accountable</Eyebrow>
@@ -336,7 +336,7 @@ export default function AboutPage() {
 
       {/* ============ CLOSING NOTE + CONTACT CARDS ============ */}
       <section className="px-4 md:px-12 pb-20 md:pb-28">
-        <div className="max-w-[77.5rem] mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <Reveal className="text-center">
             <h2 className="text-[40px] md:text-[64px] font-semibold leading-[1] tracking-[-0.045em]">
               Thanks for <span className="serif text-[var(--mm-magenta)]">stopping by.</span>

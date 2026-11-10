@@ -33,7 +33,7 @@ export default function AcademyPage() {
       {/* ============ HERO ============ */}
       <section className="relative px-4 md:px-12 pt-28 md:pt-40 pb-12 md:pb-16">
         <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
-        <div className="relative max-w-[77.5rem] mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-14 items-center">
+        <div className="relative max-w-[82rem] mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-14 items-center">
           <div>
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
@@ -101,7 +101,7 @@ export default function AcademyPage() {
 
       {/* ============ COURSES ============ */}
       <section id="courses" className="scroll-mt-24 px-4 md:px-12 py-16 md:py-24">
-        <div className="max-w-[77.5rem] mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <Reveal>
               <Eyebrow>Course outline</Eyebrow>
@@ -162,7 +162,7 @@ export default function AcademyPage() {
 
       {/* ============ WHY CHOOSE US ============ */}
       <section className="px-4 md:px-12 py-8 md:py-12">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white p-8 md:p-14">
             <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-[var(--mm-lime)]/15 blur-3xl" aria-hidden />
             <div className="relative">
@@ -212,7 +212,7 @@ export default function AcademyPage() {
 
       {/* ============ HOW TO ENROL ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24">
-        <div className="max-w-[77.5rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 self-start">
             <Eyebrow>How to enrol</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -242,7 +242,7 @@ export default function AcademyPage() {
 
       {/* ============ GALLERY: inside the classroom ============ */}
       <section aria-label="Inside the classroom" className="pb-16 md:pb-24">
-        <div className="max-w-[77.5rem] mx-auto px-4 md:px-12 mb-8">
+        <div className="max-w-[82rem] mx-auto px-4 md:px-12 mb-8">
           <Reveal>
             <Eyebrow>Inside the classroom</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -258,7 +258,7 @@ export default function AcademyPage() {
 
       {/* ============ CTA ============ */}
       <section className="px-4 md:px-12 pb-20 md:pb-28">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative isolate overflow-hidden rounded-[2rem] bg-(--mm-ink) text-white px-6 py-16 md:p-20 text-center">
             <Image
               src={photos.storefront.src}

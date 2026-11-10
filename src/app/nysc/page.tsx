@@ -42,7 +42,7 @@ export default function NYSCPage() {
 
       {/* ============ HERO (dark) ============ */}
       <section className="px-4 md:px-12 pt-24 md:pt-28">
-        <div className="relative max-w-[77.5rem] mx-auto overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white px-6 py-16 md:px-14 md:py-24">
+        <div className="relative max-w-[82rem] mx-auto overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white px-6 py-16 md:px-14 md:py-24">
           <CircuitTraces className="absolute right-0 top-8 w-[560px] max-w-[85vw] text-[var(--mm-lime)] opacity-20" />
           <div className="absolute -left-32 -bottom-32 w-96 h-96 rounded-full bg-[var(--mm-lime)]/15 blur-3xl" aria-hidden />
           <div className="relative grid lg:grid-cols-[1.4fr_1fr] gap-12 items-end">
@@ -97,7 +97,7 @@ export default function NYSCPage() {
 
       {/* ============ SERVICES ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24">
-        <div className="max-w-[77.5rem] mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           <Reveal>
             <Eyebrow>What we handle</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em] max-w-2xl">
@@ -139,7 +139,7 @@ export default function NYSCPage() {
 
       {/* ============ STEPS ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24 bg-[var(--mm-paper-2)] border-y border-[var(--mm-line)]">
-        <div className="max-w-[77.5rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
           <Reveal className="lg:sticky lg:top-28 self-start">
             <Eyebrow>How it works</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -191,7 +191,7 @@ export default function NYSCPage() {
 
       {/* ============ CTA ============ */}
       <section className="px-4 md:px-12 pb-20 md:pb-28">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 rounded-[2rem] border border-[var(--mm-line)] bg-[var(--mm-paper-2)] p-8 md:p-12">
             <div>
               <h2 className="text-[32px] md:text-[48px] font-semibold leading-[1.02] tracking-[-0.04em]">

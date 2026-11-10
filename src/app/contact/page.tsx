@@ -26,7 +26,7 @@ export default function ContactPage() {
       {/* ============ HERO ============ */}
       <section className="relative px-4 md:px-12 pt-28 md:pt-40 pb-12 md:pb-16">
         <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
-        <div className="relative max-w-[77.5rem] mx-auto">
+        <div className="relative max-w-[82rem] mx-auto">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)] mm-pulse" /> We usually reply quickly on WhatsApp
@@ -47,7 +47,7 @@ export default function ContactPage() {
 
       {/* ============ CHANNELS ============ */}
       <section className="px-4 md:px-12 pb-16 md:pb-20">
-        <div className="max-w-[77.5rem] mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="max-w-[82rem] mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {channels.map((c, i) => (
             <Reveal key={c.title} delay={i * 70}>
               <a
@@ -77,7 +77,7 @@ export default function ContactPage() {
 
       {/* ============ FORM + MAP ============ */}
       <section className="px-4 md:px-12 py-16 md:py-24 bg-[var(--mm-paper-2)] border-y border-[var(--mm-line)]">
-        <div className="max-w-[77.5rem] mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-14 items-stretch">
+        <div className="max-w-[82rem] mx-auto grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-14 items-stretch">
           <Reveal>
             <Eyebrow>Send a message</Eyebrow>
             <h2 className="mt-4 text-[32px] md:text-[44px] font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -124,7 +124,7 @@ export default function ContactPage() {
 
       {/* ============ SOCIAL ============ */}
       <section className="px-4 md:px-12 py-16 md:py-20">
-        <Reveal className="max-w-[77.5rem] mx-auto text-center">
+        <Reveal className="max-w-[82rem] mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--mm-muted)]">Find us on social media</p>
           <p className="mt-3 text-[32px] md:text-[56px] font-semibold tracking-[-0.045em]">
             <span className="serif text-[var(--mm-magenta)]">{contactInfo.social}</span>

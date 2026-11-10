@@ -20,7 +20,7 @@ export default function ServicesPage() {
       {/* ============ HERO ============ */}
       <section className="relative px-4 md:px-12 pt-28 md:pt-40 pb-12 md:pb-16">
         <CircuitTraces className="absolute right-0 top-24 w-[520px] max-w-[70vw] text-[var(--mm-green)] opacity-25" />
-        <div className="relative max-w-[77.5rem] mx-auto">
+        <div className="relative max-w-[82rem] mx-auto">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--mm-line)] bg-[var(--mm-paper-2)] px-4 h-8 text-[13px] text-[var(--mm-ink-2)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--mm-green)] mm-pulse" /> {total}+ services across {services.length + 1} categories
@@ -69,7 +69,7 @@ export default function ServicesPage() {
 
       {/* ============ CATEGORIES ============ */}
       <section className="px-4 md:px-12 pb-8">
-        <div className="max-w-[77.5rem] mx-auto">
+        <div className="max-w-[82rem] mx-auto">
           {services.map((s, i) => (
             <article
               key={s.title}
@@ -138,7 +138,7 @@ export default function ServicesPage() {
 
       {/* ============ NYSC BAND ============ */}
       <section className="px-4 md:px-12 py-8 md:py-12">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <Link
             href="/nysc"
             className="group relative flex flex-col md:flex-row md:items-center justify-between gap-8 overflow-hidden rounded-[2rem] bg-[var(--mm-lime)] p-8 md:p-12"
@@ -161,7 +161,7 @@ export default function ServicesPage() {
 
       {/* ============ CTA ============ */}
       <section className="px-4 md:px-12 pt-12 pb-20 md:pb-28">
-        <Reveal className="max-w-[77.5rem] mx-auto">
+        <Reveal className="max-w-[82rem] mx-auto">
           <div className="relative overflow-hidden rounded-[2rem] bg-[var(--mm-ink)] text-white px-6 py-14 md:p-16 text-center">
             <CircuitTraces className="absolute left-0 bottom-0 w-[460px] max-w-[80vw] text-[var(--mm-lime)] opacity-15" />
             <div className="relative">
